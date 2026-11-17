@@ -4,7 +4,7 @@ Plataforma web para **gestão, atendimento e agendamento** em clínicas odontol�
 
 > Mais do que agendar: conectar toda a experiência do paciente e da clínica.
 
-**Site:** https://emanuelmacedo15.github.io/Odontoconnect/
+**Site:** https://www.gabrielavalois.com.br
 
 ---
 
