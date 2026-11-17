@@ -1,0 +1,1301 @@
+/* ===============================
+   PÁGINA DE CONFIRMAÇÃO
+   =============================== */
+
+.confirmacao-agendamento {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #f5f0eb;
+}
+
+.card-confirmacao {
+    width: 100%;
+    max-width: none;
+    background-color: #ffffff;
+    padding: 50px 45px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(63, 39, 30, 0.08);
+    box-sizing: border-box;
+}
+
+.card-confirmacao h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: #5a382b;
+    margin-bottom: 15px;
+}
+
+.card-confirmacao > p {
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #6d5a51;
+}
+
+.resumo-agendamento {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin: 35px 0;
+}
+
+.resumo-agendamento div {
+    padding: 20px;
+    background-color: #f5f0eb;
+    border-radius: 6px;
+}
+
+.resumo-agendamento span {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: #6d5a51;
+    margin-bottom: 8px;
+}
+
+.resumo-agendamento strong {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #5a382b;
+}
+
+.texto-continuar {
+    margin-bottom: 25px;
+}
+
+.card-confirmacao .btn-principal {
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+}
+
+.voltar-agendamento {
+    display: block;
+    margin-top: 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #6d5a51;
+    text-decoration: none;
+}
+
+.voltar-agendamento:hover {
+    color: #5a382b;
+}
+
+/* ===============================
+   CABEÇALHO DA CONFIRMAÇÃO
+   =============================== */
+
+.cabecalho-confirmacao {
+    width: 100%;
+    height: 70px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 15px;
+    padding: 0 4%;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5ddd7;
+}
+
+
+/* VOLTAR */
+
+.voltar-inicio {
+    justify-self: start;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #e5ddd7;
+    border-radius: 30px;
+    color: #5a382b;
+    background-color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.voltar-inicio:hover {
+    background-color: #f5f0eb;
+}
+
+.voltar-inicio i {
+    font-size: 18px;
+}
+
+
+/* ODONTO CONNECT */
+
+.logo-odonto-connect {
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #5a382b;
+    font-family: 'Lato', serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.logo-odonto-connect img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+
+/* DOCTORALIA */
+
+.logo-doctoralia {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #009b9b;
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.simbolo-doctoralia {
+    font-size: 36px;
+}
+
+/* ===============================
+   CONTEÚDO DA CONFIRMAÇÃO
+   =============================== */
+
+.conteudo-confirmacao {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.8fr 0.8fr;
+    gap: 25px;
+    align-items: start;
+}
+
+
+/* CARTÃO DE DETALHES DA CONSULTA */
+
+.card-detalhes-consulta {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 20px rgba(63, 39, 30, 0.08);
+}
+
+
+/* PROFISSIONAL */
+
+.profissional-consulta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.profissional-consulta img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.profissional-consulta h3 {
+    margin: 0 0 5px;
+    color: #5a382b;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.profissional-consulta p {
+    margin: 0;
+    color: #6d5a51;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+
+
+/* INFORMAÇÕES */
+
+.item-consulta {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.item-consulta i {
+    width: 20px;
+    padding-top: 2px;
+    color: #9b705b;
+    font-size: 17px;
+    text-align: center;
+}
+
+.item-consulta strong {
+    display: block;
+    color: #5a382b;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.item-consulta span {
+    display: block;
+    color: #6d5a51;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.mudar-data {
+    display: inline-block;
+    margin: -5px 0 25px 35px;
+    color: #168b82;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.mudar-data:hover {
+    color: #5a382b;
+    text-decoration: underline;
+}
+
+/* ===============================
+   OPÇÕES DA CONSULTA
+   =============================== */
+
+.card-opcoes-consulta {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 45px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 20px rgba(63, 39, 30, 0.08);
+    text-align: left;
+}
+
+.card-opcoes-consulta h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 30px;
+    font-weight: 500;
+    color: #3f271e;
+    margin-bottom: 35px;
+}
+
+.opcao-consulta {
+    margin-bottom: 30px;
+}
+
+.opcao-consulta h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #3f271e;
+    margin-bottom: 12px;
+}
+
+.opcao-consulta h3 span {
+    color: #3f271e;
+}
+
+.campo-opcao {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 18px 0 20px;
+    border: 1px solid #d8d2cd;
+    border-radius: 30px;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    color: #5a382b;
+}
+
+.campo-opcao button {
+    border: none;
+    padding: 10px 22px;
+    border-radius: 25px;
+    background-color: #f5f0eb;
+    color: #5a382b;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.campo-convenio {
+    justify-content: flex-start;
+    background-color: #ffffff;
+}
+
+.observacao-opcao {
+    margin: 10px 2px 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #6d5a51;
+}
+
+.opcoes-radio {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.opcoes-radio label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    color: #5a382b;
+    cursor: pointer;
+}
+
+.opcoes-radio input {
+    width: 20px;
+    height: 20px;
+    accent-color: #5a382b;
+    cursor: pointer;
+}
+
+.btn-continuar-opcoes {
+    width: 100%;
+    height: 55px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 30px;
+    background-color: #168b82;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-continuar-opcoes:hover {
+    background-color: #11756e;
+}
+
+/* ===============================
+   MODAL - TIPO DE VISITA
+   =============================== */
+
+.modal-visita {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background-color: rgba(63, 39, 30, 0.45);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-visita.aberto {
+    display: flex;
+}
+
+.modal-conteudo {
+    width: 100%;
+    max-width: 900px;
+    max-height: 85vh;
+    background-color: #ffffff;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(63, 39, 30, 0.18);
+}
+
+.modal-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 35px;
+    border-bottom: 1px solid #e5ddd7;
+}
+
+.modal-cabecalho h2 {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+    font-weight: 600;
+    color: #3f271e;
+}
+
+.btn-fechar-modal {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background-color: #6d6d6d;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.btn-fechar-modal:hover {
+    background-color: #5a382b;
+}
+
+.lista-visitas {
+    max-height: calc(85vh - 90px);
+    overflow-y: auto;
+    padding: 0 35px;
+}
+
+.visita-item {
+    min-height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-bottom: 1px solid #e5ddd7;
+    font-family: 'Lato', sans-serif;
+}
+
+.visita-item span {
+    font-size: 16px;
+    color: #5a382b;
+}
+
+.visita-item button {
+    flex-shrink: 0;
+    min-width: 125px;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #168b82;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.visita-item button:hover {
+    background-color: #11756e;
+}
+
+.visita-item.selecionada strong {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #168b82;
+    font-family: "Lato", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+} 
+
+/* ===============================
+   MODAL - ALTERAR DATA
+   =============================== */
+
+.modal-data {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    background-color: rgba(63, 39, 30, 0.45);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-data.aberto {
+    display: flex;
+}
+
+.modal-data-conteudo {
+    width: 100%;
+    max-width: 800px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(63, 39, 30, 0.18);
+}
+
+.modal-data-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 30px;
+    border-bottom: 1px solid #e5ddd7;
+}
+
+.modal-data-cabecalho h2 {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 23px;
+    font-weight: 600;
+    color: #3f271e;
+}
+
+.btn-fechar-data {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background-color: #6d6d6d;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.datas-agendamento {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    padding: 25px 20px 30px;
+}
+
+.data-coluna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0 15px;
+    border-right: 1px solid #e5ddd7;
+}
+
+.data-coluna:last-child {
+    border-right: none;
+}
+
+.data-coluna strong {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #5a382b;
+}
+
+.data-coluna > span {
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: #6d5a51;
+    margin-bottom: 8px;
+}
+
+.data-coluna button {
+    width: 80px;
+    padding: 9px 8px;
+    border: none;
+    border-radius: 20px;
+    background-color: #dff3ed;
+    color: #168b82;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.data-coluna button:hover {
+    background-color: #168b82;
+    color: #ffffff;
+}
+
+/* ===============================
+   NAVEGAÇÃO DO MODAL DE DATA
+   =============================== */
+
+.modal-data-cabecalho {
+    gap: 20px;
+}
+
+.controle-data {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.controle-data h2 {
+    margin: 0;
+}
+
+.seta-data {
+    width: 34px;
+    height: 34px;
+    border: 1px solid #d8d2cd;
+    border-radius: 50%;
+    background-color: #ffffff;
+    color: #5a382b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.seta-data:hover {
+    background-color: #f5f0eb;
+    border-color: #9b705b;
+}
+
+.sem-horario-modal {
+    margin-top: 20px;
+    color: #aaa09a;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+
+/* ===============================
+   HORÁRIOS EXTRAS DO MODAL
+   =============================== */
+
+.horarios-extras-modal {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.horarios-extras-modal.mostrar {
+    display: flex;
+}
+
+
+/* ===============================
+   BOTÃO VER MAIS HORÁRIOS
+   =============================== */
+
+.btn-ver-mais-modal {
+    display: block;
+    margin: 5px auto 25px;
+    padding: 9px 20px;
+    border: 1px solid #9b705b;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #5a382b;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-ver-mais-modal:hover {
+    background-color: #f5f0eb;
+    border-color: #5a382b;
+}
+
+.btn-ver-mais-modal i {
+    margin-right: 7px;
+}
+
+
+/* ===============================
+   AJUSTE DOS HORÁRIOS
+   =============================== */
+
+.data-coluna button {
+    width: 80px;
+    min-width: 80px;
+    padding: 9px 8px;
+    border: none;
+    border-radius: 20px;
+    background-color: #dff3ed;
+    color: #168b82;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.data-coluna button:hover {
+    background-color: #168b82;
+    color: #ffffff;
+}
+/* ===============================
+   ROLAGEM DO MODAL DE DATA
+   =============================== */
+
+.modal-data-conteudo {
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.datas-agendamento {
+    overflow-y: auto;
+    max-height: 55vh;
+    flex-shrink: 1;
+}
+
+/* ===============================
+   DADOS DO PACIENTE
+   =============================== */
+
+.card-dados-paciente {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 35px 40px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    box-shadow: 0 5px 20px rgba(63, 39, 30, 0.08);
+    text-align: left;
+}
+
+.card-dados-paciente h1 {
+    margin: 0 0 30px;
+    font-family: 'Lato', sans-serif;
+    font-size: 27px;
+    font-weight: 500;
+    color: #3f271e;
+}
+
+.secao-dados {
+    margin-bottom: 18px;
+}
+
+.secao-dados h3 {
+    margin: 0 0 8px;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #3f271e;
+}
+
+.secao-dados h3 span {
+    color: #3f271e;
+}
+
+.secao-dados h3 small {
+    font-size: 12px;
+    font-weight: 400;
+    color: #6d5a51;
+}
+
+.secao-dados label {
+    display: block;
+    margin-bottom: 6px;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: #3f271e;
+}
+
+.secao-dados label span {
+    color: #3f271e;
+}
+
+.secao-dados input,
+.secao-dados textarea {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d8d2cd;
+    border-radius: 22px;
+    padding: 10px 16px;
+    background-color: #ffffff;
+    color: #5a382b;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.secao-dados > input {
+    margin-bottom: 14px;
+}
+
+.secao-dados input:focus,
+.secao-dados textarea:focus {
+    border-color: #9b705b;
+}
+
+.secao-dados textarea {
+    min-height: 65px;
+    border-radius: 13px;
+    resize: none;
+}
+
+.data-nascimento {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr;
+    gap: 8px;
+}
+
+.data-nascimento input {
+    text-align: center;
+}
+
+.texto-ajuda {
+    margin: 5px 2px 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    color: #6d5a51;
+}
+
+.opcao-pessoa {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: fit-content;
+    padding: 9px 16px;
+    border: 1px solid #9b705b;
+    border-radius: 22px;
+    color: #5a382b;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+}
+
+.opcao-pessoa i {
+    color: #168b82;
+}
+
+.aceite-dados {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #6d5a51;
+    cursor: pointer;
+}
+
+.aceite-dados input {
+    margin-top: 2px;
+    accent-color: #5a382b;
+    cursor: pointer;
+}
+
+.btn-confirmar-dados {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 25px;
+    background-color: #168b82;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-confirmar-dados:hover {
+    background-color: #11756e;
+}
+
+
+/* ===============================
+   MENSAGENS DE ERRO DO FORMULÁRIO
+   =============================== */
+
+.erro-campo {
+    display: none;
+    margin: 6px 2px 0;
+    color: #c0392b;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.erro-campo.mostrar {
+    display: block;
+}
+
+.erro-campo-checkbox {
+    margin-top: -10px;
+    margin-bottom: 14px;
+}
+
+.secao-dados input.campo-invalido,
+.secao-dados textarea.campo-invalido {
+    border-color: #c0392b;
+    background-color: #fdf3f2;
+}
+
+.aceite-dados.campo-invalido {
+    outline: 1px solid #c0392b;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+
+/* ===============================
+   LINK "LER MAIS" (POLÍTICA DE PRIVACIDADE)
+   =============================== */
+
+.link-ler-mais {
+    display: inline;
+    margin-left: 3px;
+    padding: 0;
+    border: none;
+    background: none;
+    color: #168b82;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.link-ler-mais:hover {
+    color: #11756e;
+}
+
+
+/* ===============================
+   CARDZINHO RESUMIDO DE PRIVACIDADE
+   =============================== */
+
+.mini-card-privacidade {
+    display: none;
+    margin: -6px 0 16px;
+    padding: 16px 18px;
+    background-color: #f5f0eb;
+    border: 1px solid #e5ddd7;
+    border-radius: 10px;
+}
+
+.mini-card-privacidade.mostrar {
+    display: block;
+}
+
+.mini-card-privacidade p {
+    margin: 0 0 12px;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    line-height: 1.6;
+    color: #6d5a51;
+}
+
+.link-politica-completa {
+    padding: 0;
+    border: none;
+    background: none;
+    color: #168b82;
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.link-politica-completa:hover {
+    color: #11756e;
+}
+
+
+/* ===============================
+   MODAL - POLÍTICA DE PRIVACIDADE
+   =============================== */
+
+.modal-privacidade {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1200;
+    background-color: rgba(63, 39, 30, 0.45);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-privacidade.aberto {
+    display: flex;
+}
+
+.modal-privacidade-conteudo {
+    width: 100%;
+    max-width: 720px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(63, 39, 30, 0.18);
+}
+
+.modal-privacidade-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 35px;
+    border-bottom: 1px solid #e5ddd7;
+    flex-shrink: 0;
+}
+
+.modal-privacidade-cabecalho h2 {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #3f271e;
+}
+
+.btn-fechar-privacidade {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background-color: #6d6d6d;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 14px;
+    flex-shrink: 0;
+    transition: 0.3s;
+}
+
+.btn-fechar-privacidade:hover {
+    background-color: #5a382b;
+}
+
+.modal-privacidade-corpo {
+    padding: 30px 35px 35px;
+    overflow-y: auto;
+    font-family: 'Lato', sans-serif;
+    color: #6d5a51;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.modal-privacidade-corpo p {
+    margin-bottom: 14px;
+}
+
+.modal-privacidade-corpo h3 {
+    margin: 22px 0 10px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #5a382b;
+}
+
+.modal-privacidade-corpo h3:first-child {
+    margin-top: 0;
+}
+
+.modal-privacidade-corpo ul {
+    margin: 0 0 14px 20px;
+}
+
+.modal-privacidade-corpo li {
+    margin-bottom: 6px;
+}
+
+.modal-privacidade-corpo .privacidade-atualizacao {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #aaa09a;
+}
+
+
+/* ===============================
+   MODAL - COMUNICAÇÕES COMERCIAIS
+   =============================== */
+
+.modal-comunicacoes {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1300;
+    background-color: rgba(63, 39, 30, 0.45);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-comunicacoes.aberto {
+    display: flex;
+}
+
+.modal-comunicacoes-conteudo {
+    width: 100%;
+    max-width: 460px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(63, 39, 30, 0.18);
+}
+
+.modal-comunicacoes-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 26px 0;
+}
+
+.modal-comunicacoes-cabecalho h2 {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    color: #3f271e;
+}
+
+.btn-fechar-comunicacoes {
+    width: 26px;
+    height: 26px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: #f5f0eb;
+    color: #5a382b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.btn-fechar-comunicacoes:hover {
+    background-color: #e5ddd7;
+}
+
+.modal-comunicacoes-corpo {
+    padding: 16px 26px 6px;
+    font-family: 'Lato', sans-serif;
+    color: #6d5a51;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.modal-comunicacoes-corpo a {
+    color: #168b82;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.modal-comunicacoes-corpo a:hover {
+    color: #11756e;
+}
+
+.modal-comunicacoes-rodape {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 26px 22px;
+}
+
+.btn-fechar-comunicacoes-texto {
+    border: none;
+    background: none;
+    padding: 0;
+    color: #168b82;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-fechar-comunicacoes-texto:hover {
+    color: #11756e;
+}
+
+
+/* ===============================
+   RESPONSIVIDADE
+   =============================== */
+
+@media (max-width: 600px) {
+
+    .card-confirmacao {
+        padding: 35px 25px;
+    }
+
+    .card-confirmacao h1 {
+        font-size: 25px;
+    }
+
+    .resumo-agendamento {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* ===============================
+   RESPONSIVIDADE DO CABEÇALHO
+   =============================== */
+
+@media (max-width: 900px) {
+
+    .cabecalho-confirmacao {
+        height: auto;
+        min-height: 80px;
+        padding: 15px 25px;
+        gap: 20px;
+    }
+
+    .logo-odonto-connect {
+        font-size: 22px;
+        letter-spacing: 1px;
+    }
+
+    .logo-odonto-connect img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .logo-doctoralia {
+        font-size: 20px;
+    }
+
+    .simbolo-doctoralia {
+        font-size: 28px;
+    }
+
+    .voltar-inicio {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .cabecalho-confirmacao {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 15px;
+    }
+
+    .voltar-inicio {
+        order: 1;
+    }
+
+    .logo-odonto-connect {
+        order: 2;
+    }
+
+    .logo-doctoralia {
+        order: 3;
+    }
+
+}

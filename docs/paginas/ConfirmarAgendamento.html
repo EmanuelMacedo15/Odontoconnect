@@ -1,0 +1,3024 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+    <link rel="icon" href="../imagens/favicon.ico" type="image/x-icon">
+    <title>
+        Confirmar agendamento | OdontoConnect
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="ConfirmarAgendamento.css"
+    >
+
+</head>
+
+
+<body>
+    <header class="cabecalho-confirmacao">
+
+        <button
+            type="button"
+            class="voltar-inicio"
+            id="btn-voltar-etapa"
+        >
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar
+        </button>
+
+
+        <div class="logo-odonto-connect">
+
+            <img src="../imagens/logo-odontoconnect.png" alt="OdontoConnect">
+
+            <span>
+                ODONTOCONNECT
+            </span>
+
+        </div>
+
+        </div>
+
+    </header>
+
+    <section class="confirmacao-agendamento">
+
+        <div class="conteudo-confirmacao">
+
+        <div class="card-opcoes-consulta">
+
+            <h1>Selecione as opções da consulta</h1>
+
+            <div class="opcao-consulta">
+
+                <h3>Tipo de visita <span>*</span></h3>
+
+                <div class="campo-opcao">
+                    <span>Primeira consulta Odontológica</span>
+
+                    <button type="button">
+                        Alterar
+                    </button>
+                </div>
+
+            </div>
+
+
+            <div class="opcao-consulta">
+
+                <h3>Convênio médico <span>*</span></h3>
+
+                <div class="campo-opcao campo-convenio">
+                    <span>Não aceitamos convênio médico</span>
+                </div>
+
+                <p class="observacao-opcao">
+                    Este especialista não aceita nenhum convênio médico no local selecionado
+                </p>
+
+            </div>
+
+
+            <div class="opcao-consulta">
+
+                <h3>
+                    É a sua primeira consulta com este especialista? <span>*</span>
+                </h3>
+
+                <div class="opcoes-radio">
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="primeira-consulta"
+                            value="sim"
+                            checked
+                        >
+                        <span>Sim</span>
+                    </label>
+
+                    <label>
+                        <input
+                            type="radio"
+                            name="primeira-consulta"
+                            value="nao"
+                        >
+                        <span>Não</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="btn-continuar-opcoes"
+                id="btn-continuar-opcoes"
+            >
+                Continuar
+            </button>
+
+        </div>
+
+        <div class="card-dados-paciente" id="card-dados-paciente">
+
+            <h1>Verificar e reservar</h1>
+
+            <div class="secao-dados">
+
+                <h3>Para quem é a consulta?</h3>
+
+                <div class="opcao-pessoa selecionada">
+                    <i class="fa-regular fa-circle-check"></i>
+                    <span>Para mim</span>
+                </div>
+
+            </div>
+
+
+            <div class="secao-dados">
+
+                <h3>Dados do paciente</h3>
+
+                <label for="nome-paciente">
+                    Nome completo <span>*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="nome-paciente"
+                    placeholder="Digite seu nome completo"
+                >
+
+                <span class="erro-campo" id="erro-nome"></span>
+
+            </div>
+
+
+            <div class="secao-dados">
+
+                <h3>Data de nascimento <span>*</span></h3>
+
+                <div class="data-nascimento">
+
+                    <input
+                        type="text"
+                        id="dia-nascimento"
+                        placeholder="DD"
+                        maxlength="2"
+                    >
+
+                    <input
+                        type="text"
+                        id="mes-nascimento"
+                        placeholder="MM"
+                        maxlength="2"
+                    >
+
+                    <input
+                        type="text"
+                        id="ano-nascimento"
+                        placeholder="AAAA"
+                        maxlength="4"
+                    >
+
+                </div>
+
+                <span class="erro-campo" id="erro-nascimento"></span>
+
+            </div>
+
+
+            <div class="secao-dados">
+
+                <h3>Dados de contato</h3>
+
+                <label for="telefone-paciente">
+                    Seu número de celular <span>*</span>
+                </label>
+
+                <input
+                    type="tel"
+                    id="telefone-paciente"
+                    placeholder="(81) 9XXXX-XXXX"
+                >
+
+                <span class="erro-campo" id="erro-telefone"></span>
+
+
+                <label for="email-paciente">
+                    E-mail <span>*</span>
+                </label>
+
+                <input
+                    type="email"
+                    id="email-paciente"
+                    placeholder="Digite seu e-mail"
+                    required
+                >
+
+                <span class="erro-campo" id="erro-email"></span>
+
+                <p class="texto-ajuda">
+                    Usaremos seus dados para confirmar e gerenciar o agendamento.
+                </p>
+
+            </div>
+
+
+            <div class="secao-dados">
+
+                <h3>Observação <small>(opcional)</small></h3>
+
+                <textarea
+                    id="observacao-paciente"
+                    placeholder="Alguma informação que gostaria de deixar para a clínica?"
+                ></textarea>
+
+            </div>
+
+
+            <label class="aceite-dados">
+
+                <input
+                    type="checkbox"
+                    id="aceite-dados"
+                >
+
+                <span>
+                    Autorizo o uso dos meus dados para fins relacionados ao atendimento.
+                    <button
+                        type="button"
+                        class="link-ler-mais"
+                        id="btn-abrir-privacidade"
+                    >
+                        Ler mais
+                    </button>
+                </span>
+
+            </label>
+
+            <span class="erro-campo erro-campo-checkbox" id="erro-aceite"></span>
+
+
+            <label class="aceite-dados">
+
+                <input
+                    type="checkbox"
+                    id="aceite-comunicacoes"
+                >
+
+                <span>
+                    Gostaria de receber comunicações comerciais da OdontoConnect (opcional).
+                    <button
+                        type="button"
+                        class="link-ler-mais"
+                        id="btn-abrir-comunicacoes"
+                    >
+                        Ler mais
+                    </button>
+                </span>
+
+            </label>
+
+
+            <button
+                type="button"
+                class="btn-confirmar-dados"
+                id="btn-confirmar-dados"
+            >
+                Continuar
+            </button>
+
+            <span class="erro-campo" id="erro-agendamento"></span>
+
+        </div>
+            <div class="card-detalhes-consulta">
+
+            <div class="profissional-consulta">
+
+                <img
+                    src="../imagens/dra-gabriela-perfil.jpeg"
+                    alt="Dra. Gabriela Valois"
+                >
+
+                <div>
+                    <h3>Dra. Gabriela Valois</h3>
+                    <p>Cirurgiã-Dentista</p>
+                    <p>CRO - PE 17387</p>
+                </div>
+
+            </div>
+
+
+            <div class="item-consulta">
+
+                <i class="fa-regular fa-calendar"></i>
+
+                <div>
+                    <strong id="data-horario-consulta">
+                        18 de setembro de 2026, 08:00
+                    </strong>
+
+                    <span>
+                        Fuso horário: America/Recife
+                    </span>
+                </div>
+
+            </div>
+            <button type="button" class="mudar-data" id="btn-mudar-data">Mudar a data</button>
+
+
+            <div class="item-consulta">
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <div>
+                    <span>
+                        Recife - PE
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="item-consulta">
+
+                <i class="fa-solid fa-credit-card"></i>
+
+                <div>
+                    <span>
+                        Consulte a clínica sobre o pagamento
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+    </section>
+    <!-- ===============================
+     MODAL - TIPO DE VISITA
+     =============================== -->
+
+<div class="modal-visita" id="modal-visita">
+
+    <div class="modal-conteudo">
+
+        <div class="modal-cabecalho">
+
+            <h2>Escolha o tipo de visita</h2>
+
+            <button
+                type="button"
+                class="btn-fechar-modal"
+                id="btn-fechar-modal"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <div class="lista-visitas">
+
+            <div class="visita-item selecionada">
+
+                <span>
+                    Primeira consulta Odontológica
+                </span>
+
+                <strong>
+                    <i class="fa-solid fa-check"></i>
+                    Selecionado
+                </strong>
+
+            </div>
+
+
+            <div class="visita-item">
+
+                <span>
+                    Retorno de consultas Odontologia
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+            
+            <div class="visita-item">
+
+                <span>
+                    Biopsia da boca
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+            <div class="visita-item">
+
+                <span>
+                    Biopsia da lingua
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+            <div class="visita-item">
+
+                <span>
+                    Cirurgia guiada
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+            <div class="visita-item">
+
+                <span>
+                    Cirurgia sem corte
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+            <div class="visita-item">
+
+                <span>
+                    Clareamento de dentes desvitalizados
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+            <div class="visita-item">
+
+                <span>
+                    Clareamento dental
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+
+            <div class="visita-item">
+
+                <span>
+                    Clareamento dental a laser
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+
+            <div class="visita-item">
+
+                <span>
+                    Clareamento dental caseiro
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+
+            <div class="visita-item">
+
+                <span>
+                    Consulta Dentista
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+
+            <div class="visita-item">
+
+                <span>
+                    Diagnóstico das doenças bucais
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+            <div class="visita-item">
+
+                <span>
+                    Enxerto gengival conjutivo
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+            <div class="visita-item">
+
+                <span>
+                    Enxerto ósseo dos maxilares
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+            <div class="visita-item">
+
+                <span>
+                    Facetas de porcelana
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+            <div class="visita-item">
+
+                <span>
+                    Faceta em resina
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+            <div class="visita-item">
+
+                <span>
+                    Implantes dentários
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+            <div class="visita-item">
+
+                <span>
+                    Lente de contato dental
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+            <div class="visita-item">
+
+                <span>
+                    Profilaxia dental (limpeza)
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+
+            <div class="visita-item">
+
+                <span>
+                    Raspagem periodontal
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+
+            <div class="visita-item">
+
+                <span>
+                    Tratamento endodôntico
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+            <div class="visita-item">
+
+                <span>
+                    Tratamento endodontico de dentes permanentes
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+            <div class="visita-item">
+
+                <span>
+                    Urgência em endodontia
+                </span>
+
+                <button type="button">
+                    Selecione
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+    <!-- ===============================
+        MODAL - ALTERAR DATA
+        =============================== -->
+
+    <div class="modal-data" id="modal-data">
+
+        <div class="modal-data-conteudo">
+
+            <div class="modal-data-cabecalho">
+
+                <div class="controle-data">
+
+                    <button
+                        type="button"
+                        class="seta-data"
+                        id="btn-data-anterior"
+                    >
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <h2>Escolha uma nova data</h2>
+
+                    <button
+                        type="button"
+                        class="seta-data"
+                        id="btn-data-proxima"
+                    >
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn-fechar-data"
+                    id="btn-fechar-data"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <div class="datas-agendamento">
+
+            <div class="data-coluna">
+
+                <strong>Ter.</strong>
+                <span>15 Set</span>
+
+                <button>08:00</button>
+                <button>08:30</button>
+                <button>09:00</button>
+                <button>09:30</button>
+                <button>10:00</button>
+                <button>10:30</button>
+
+                <div class="horarios-extras-modal">
+
+                    <button>11:00</button>
+                    <button>11:30</button>
+                    <button>14:00</button>
+                    <button>14:30</button>
+                    <button>15:00</button>
+                    <button>15:30</button>
+                    <button>16:00</button>
+                    <button>16:30</button>
+                    <button>17:00</button>
+                    <button>17:30</button>
+
+                </div>
+
+            </div>
+
+
+            <div class="data-coluna">
+
+                <strong>Qua.</strong>
+                <span>16 Set</span>
+
+                <button>08:00</button>
+                <button>08:30</button>
+                <button>09:00</button>
+                <button>09:30</button>
+                <button>10:00</button>
+                <button>10:30</button>
+
+                <div class="horarios-extras-modal">
+
+                    <button>11:00</button>
+                    <button>11:30</button>
+                    <button>14:00</button>
+                    <button>14:30</button>
+                    <button>15:00</button>
+                    <button>15:30</button>
+                    <button>16:00</button>
+                    <button>16:30</button>
+                    <button>17:00</button>
+                    <button>17:30</button>
+
+                </div>
+
+            </div>
+
+
+            <div class="data-coluna">
+
+                <strong>Qui.</strong>
+                <span>17 Set</span>
+
+                <button>08:00</button>
+                <button>08:30</button>
+                <button>09:00</button>
+                <button>09:30</button>
+                <button>10:00</button>
+                <button>10:30</button>
+
+                <div class="horarios-extras-modal">
+
+                    <button>11:00</button>
+                    <button>11:30</button>
+                    <button>14:00</button>
+                    <button>14:30</button>
+                    <button>15:00</button>
+                    <button>15:30</button>
+                    <button>16:00</button>
+                    <button>16:30</button>
+                    <button>17:00</button>
+                    <button>17:30</button>
+
+                </div>
+
+            </div>
+
+
+            <div class="data-coluna">
+
+                <strong>Sex.</strong>
+                <span>18 Set</span>
+
+                <button>08:00</button>
+                <button>08:30</button>
+                <button>09:00</button>
+                <button>09:30</button>
+                <button>10:00</button>
+                <button>10:30</button>
+
+                <div class="horarios-extras-modal">
+
+                    <button>11:00</button>
+                    <button>11:30</button>
+                    <button>14:00</button>
+                    <button>14:30</button>
+                    <button>15:00</button>
+                    <button>15:30</button>
+                    <button>16:00</button>
+                    <button>16:30</button>
+                    <button>17:00</button>
+                    <button>17:30</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+<button
+    type="button"
+    class="btn-ver-mais-modal"
+    id="btn-ver-mais-modal"
+>
+    <i class="fa-solid fa-plus"></i>
+    Ver mais horários
+</button>
+
+        </div>
+
+    </div>
+
+    <!-- ===============================
+        MODAL - USO DOS SEUS DADOS
+        =============================== -->
+
+    <div class="modal-comunicacoes" id="modal-privacidade-resumo">
+
+        <div class="modal-comunicacoes-conteudo">
+
+            <div class="modal-comunicacoes-cabecalho">
+
+                <h2>Uso dos seus dados</h2>
+
+                <button
+                    type="button"
+                    class="btn-fechar-comunicacoes"
+                    id="btn-fechar-privacidade-resumo"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+            <div class="modal-comunicacoes-corpo">
+
+                <p>
+                    Usamos seus dados (nome, contato, data de nascimento e
+                    informações da consulta) apenas para confirmar o seu
+                    agendamento, manter o seu histórico com a clínica e
+                    cumprir exigências legais. Não vendemos nem
+                    compartilhamos suas informações com terceiros para fins
+                    comerciais. Saiba mais em nossa
+                    <a
+                        href="../documentos/politica-de-privacidade-odontoconnect.pdf"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        política de privacidade
+                    </a>.
+                </p>
+
+            </div>
+
+            <div class="modal-comunicacoes-rodape">
+
+                <button
+                    type="button"
+                    class="btn-fechar-comunicacoes-texto"
+                    id="btn-fechar-privacidade-resumo-texto"
+                >
+                    Fechar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ===============================
+        MODAL - COMUNICAÇÕES COMERCIAIS
+        =============================== -->
+
+    <div class="modal-comunicacoes" id="modal-comunicacoes">
+
+        <div class="modal-comunicacoes-conteudo">
+
+            <div class="modal-comunicacoes-cabecalho">
+
+                <h2>Comunicações comerciais</h2>
+
+                <button
+                    type="button"
+                    class="btn-fechar-comunicacoes"
+                    id="btn-fechar-comunicacoes"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+            <div class="modal-comunicacoes-corpo">
+
+                <p>
+                    Gostaríamos de compartilhar novidades, lembretes e
+                    condições especiais sobre os serviços da OdontoConnect
+                    que podem ser do seu interesse. Você pode mudar de ideia
+                    e retirar essa autorização a qualquer momento. Saiba mais
+                    sobre isso em nossa
+                    <a
+                        href="../documentos/politica-de-privacidade-odontoconnect.pdf"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        política de privacidade
+                    </a>.
+                </p>
+
+            </div>
+
+            <div class="modal-comunicacoes-rodape">
+
+                <button
+                    type="button"
+                    class="btn-fechar-comunicacoes-texto"
+                    id="btn-fechar-comunicacoes-texto"
+                >
+                    Fechar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase.js"></script>
+
+    <script>
+        
+
+        // Horários já reservados no Supabase, usados
+        // pelo modal "Mudar a data". Ficam aqui no início
+        // porque o modal é montado logo que a página abre.
+        // Guarda "AAAA-MM-DD HH:MM" de cada horário reservado
+        const horariosOcupadosModal = new Set();
+
+        // Intervalos de datas que já foram buscados
+        const periodosCarregadosModal = new Set();
+
+        // ===============================
+        // DADOS DO AGENDAMENTO
+        // ===============================
+
+        const parametros =
+            new URLSearchParams(window.location.search);
+
+        const dataSelecionada =
+            parametros.get("data");
+
+        const horarioSelecionado =
+            parametros.get("horario");
+
+
+        // ===============================
+        // FORMATAÇÃO DA DATA
+        // ===============================
+
+        // Descobre o ano da consulta: se o mês
+        // já passou neste ano, é do ano seguinte
+        function anoDaConsulta(indiceMes) {
+
+            const hoje = new Date();
+
+            return indiceMes < hoje.getMonth()
+                ? hoje.getFullYear() + 1
+                : hoje.getFullYear();
+        }
+
+        function formatarData(data) {
+
+            if (!data) {
+                return "";
+            }
+
+            const partes =
+                data.split(".");
+
+            const dia =
+                partes[0];
+
+            const mes =
+                partes[1];
+
+            const meses = [
+                "janeiro",
+                "fevereiro",
+                "março",
+                "abril",
+                "maio",
+                "junho",
+                "julho",
+                "agosto",
+                "setembro",
+                "outubro",
+                "novembro",
+                "dezembro"
+            ];
+
+            const numeroMes =
+                parseInt(mes, 10);
+
+            const nomeMes =
+                meses[numeroMes - 1];
+
+            return dia + " de " + nomeMes + " de " +
+                anoDaConsulta(numeroMes - 1);
+        }
+
+
+        // ===============================
+        // CONFIRMAÇÃO - PRIMEIRO CARTÃO
+        // ===============================
+
+        const campoData =
+            document.getElementById("data-selecionada");
+
+        const campoHorario =
+            document.getElementById("horario-selecionado");
+
+        if (dataSelecionada && campoData) {
+            campoData.textContent =
+                dataSelecionada;
+        }
+
+        if (horarioSelecionado && campoHorario) {
+            campoHorario.textContent =
+                horarioSelecionado;
+        }
+
+
+        // ===============================
+        // DETALHES DA CONSULTA
+        // ===============================
+
+        const dataHorarioConsulta =
+        document.getElementById("data-horario-consulta");
+
+    if (
+        dataSelecionada &&
+        horarioSelecionado &&
+        dataHorarioConsulta
+    ) {
+
+        dataHorarioConsulta.textContent =
+            formatarData(dataSelecionada) +
+            ", " +
+            horarioSelecionado;
+}
+        // ===============================
+        // MODAL - TIPO DE VISITA
+        // ===============================
+
+        const modalVisita =
+            document.getElementById("modal-visita");
+
+        const btnAltere =
+            document.querySelector(".campo-opcao button");
+
+        const btnFecharModal =
+            document.getElementById("btn-fechar-modal");
+
+
+        // Abrir o modal
+        if (btnAltere && modalVisita) {
+
+            btnAltere.addEventListener(
+                "click",
+                function() {
+
+                    modalVisita.classList.add("aberto");
+
+                }
+            );
+
+        }
+
+
+        // Fechar pelo X
+        if (btnFecharModal && modalVisita) {
+
+            btnFecharModal.addEventListener(
+                "click",
+                function() {
+
+                    modalVisita.classList.remove("aberto");
+
+                }
+            );
+
+        }
+
+
+        // Fechar clicando fora da janela
+        if (modalVisita) {
+
+            modalVisita.addEventListener(
+                "click",
+                function(event) {
+
+                    if (event.target === modalVisita) {
+
+                        modalVisita.classList.remove("aberto");
+
+                    }
+
+                }
+            );
+
+        }
+        // ===============================
+        // SELECIONAR TIPO DE VISITA
+        // ===============================
+
+        const botoesVisita =
+            document.querySelectorAll(
+                ".visita-item button"
+            );
+
+        botoesVisita.forEach(function(botao) {
+
+            botao.addEventListener(
+                "click",
+                function() {
+
+                    const item =
+                        botao.closest(".visita-item");
+
+                    const nomeVisita =
+                        item.querySelector("span")
+                            .textContent
+                            .trim();
+
+                    // Coloca o tipo escolhido no campo principal
+                    const campoVisita =
+                        document.querySelector(
+                            ".campo-opcao span"
+                        );
+
+                    if (campoVisita) {
+                        campoVisita.textContent =
+                            nomeVisita;
+                    }
+
+                    // Fecha o modal
+                    const modalVisita =
+                        document.getElementById(
+                            "modal-visita"
+                        );
+
+                    if (modalVisita) {
+                        modalVisita.classList.remove(
+                            "aberto"
+                        );
+                    }
+
+                }
+            );
+
+        });
+
+        // ===============================
+        // MODAL - ALTERAR DATA
+        // ===============================
+
+        const modalData =
+            document.getElementById("modal-data");
+
+        const btnMudarData =
+            document.getElementById("btn-mudar-data");
+
+        const btnFecharData =
+            document.getElementById("btn-fechar-data");
+
+
+        // ===============================
+        // ABRIR MODAL
+        // ===============================
+
+        if (btnMudarData && modalData) {
+
+            btnMudarData.addEventListener(
+                "click",
+                function() {
+
+                    modalData.classList.add("aberto");
+
+                }
+            );
+
+        }
+
+
+        // ===============================
+        // FECHAR NO X
+        // ===============================
+
+        if (btnFecharData && modalData) {
+
+            btnFecharData.addEventListener(
+                "click",
+                function() {
+
+                    modalData.classList.remove("aberto");
+
+                }
+            );
+
+        }
+
+
+        // ===============================
+        // FECHAR CLICANDO FORA
+        // ===============================
+
+        if (modalData) {
+
+            modalData.addEventListener(
+                "click",
+                function(event) {
+
+                    if (event.target === modalData) {
+
+                        modalData.classList.remove(
+                            "aberto"
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+        // ===============================
+        // MODAL - USO DOS SEUS DADOS
+        // ===============================
+
+        const modalPrivacidadeResumo =
+            document.getElementById("modal-privacidade-resumo");
+
+        const btnAbrirPrivacidade =
+            document.getElementById("btn-abrir-privacidade");
+
+        const btnFecharPrivacidadeResumo =
+            document.getElementById("btn-fechar-privacidade-resumo");
+
+        const btnFecharPrivacidadeResumoTexto =
+            document.getElementById("btn-fechar-privacidade-resumo-texto");
+
+
+        // O botão fica dentro do <label> do checkbox, então
+        // precisamos impedir que o clique também marque/
+        // desmarque o "Autorizo o uso dos meus dados"
+
+        if (btnAbrirPrivacidade && modalPrivacidadeResumo) {
+
+            btnAbrirPrivacidade.addEventListener(
+                "click",
+                function(event) {
+
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    modalPrivacidadeResumo.classList.add("aberto");
+
+                }
+            );
+
+        }
+
+
+        // Fechar pelo X ou pelo link "Fechar"
+
+        [btnFecharPrivacidadeResumo, btnFecharPrivacidadeResumoTexto].forEach(
+            function(botao) {
+
+                if (botao && modalPrivacidadeResumo) {
+
+                    botao.addEventListener(
+                        "click",
+                        function() {
+
+                            modalPrivacidadeResumo.classList.remove("aberto");
+
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+
+        // Fechar clicando fora da janela
+
+        if (modalPrivacidadeResumo) {
+
+            modalPrivacidadeResumo.addEventListener(
+                "click",
+                function(event) {
+
+                    if (event.target === modalPrivacidadeResumo) {
+
+                        modalPrivacidadeResumo.classList.remove("aberto");
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        // ===============================
+        // MODAL - COMUNICAÇÕES COMERCIAIS
+        // ===============================
+
+        const modalComunicacoes =
+            document.getElementById("modal-comunicacoes");
+
+        const btnAbrirComunicacoes =
+            document.getElementById("btn-abrir-comunicacoes");
+
+        const btnFecharComunicacoes =
+            document.getElementById("btn-fechar-comunicacoes");
+
+        const btnFecharComunicacoesTexto =
+            document.getElementById("btn-fechar-comunicacoes-texto");
+
+
+        // Abrir o modal
+        // (o botão fica dentro do <label> do checkbox, então
+        // precisamos impedir que o clique também marque/
+        // desmarque o "Gostaria de receber comunicações...")
+
+        if (btnAbrirComunicacoes && modalComunicacoes) {
+
+            btnAbrirComunicacoes.addEventListener(
+                "click",
+                function(event) {
+
+                    event.preventDefault();
+                    event.stopPropagation();
+
+                    modalComunicacoes.classList.add("aberto");
+
+                }
+            );
+
+        }
+
+
+        // Fechar pelo X ou pelo link "Fechar"
+
+        [btnFecharComunicacoes, btnFecharComunicacoesTexto].forEach(
+            function(botao) {
+
+                if (botao && modalComunicacoes) {
+
+                    botao.addEventListener(
+                        "click",
+                        function() {
+
+                            modalComunicacoes.classList.remove("aberto");
+
+                        }
+                    );
+
+                }
+
+            }
+        );
+
+
+        // Fechar clicando fora da janela
+
+        if (modalComunicacoes) {
+
+            modalComunicacoes.addEventListener(
+                "click",
+                function(event) {
+
+                    if (event.target === modalComunicacoes) {
+
+                        modalComunicacoes.classList.remove("aberto");
+
+                    }
+
+                }
+            );
+
+        }
+
+
+        // ===============================
+        // SELEÇÃO DE NOVA DATA E HORÁRIO
+        // ===============================
+
+        const botoesNovosHorarios =
+            document.querySelectorAll(
+                ".data-coluna button"
+            );
+
+        botoesNovosHorarios.forEach(function(botao) {
+
+            botao.addEventListener(
+                "click",
+                function() {
+
+                    const coluna =
+                        botao.closest(".data-coluna");
+
+                    const data =
+                        coluna.querySelector("span")
+                            .textContent
+                            .trim();
+
+                    const horario =
+                        botao.textContent.trim();
+
+
+                    // ===============================
+                    // ATUALIZA A URL
+                    // ===============================
+
+                    const novaData =
+                        converterDataParaURL(data);
+
+                    const novaURL =
+                        "ConfirmarAgendamento.html?data=" +
+                        encodeURIComponent(novaData) +
+                        "&horario=" +
+                        encodeURIComponent(horario);
+
+                    window.history.replaceState(
+                        {},
+                        "",
+                        novaURL
+                    );
+
+
+                    // ===============================
+                    // ATUALIZA OS DADOS DA CONSULTA
+                    // ===============================
+
+                    const dataHorarioConsulta =
+                        document.getElementById(
+                            "data-horario-consulta"
+                        );
+
+                    if (
+                        dataHorarioConsulta &&
+                        novaData &&
+                        horario
+                    ) {
+
+                        dataHorarioConsulta.textContent =
+                            formatarData(novaData) +
+                            ", " +
+                            horario;
+
+                    }
+
+
+                    // ===============================
+                    // ATUALIZA O PRIMEIRO CARD
+                    // ===============================
+
+                    const campoData =
+                        document.getElementById(
+                            "data-selecionada"
+                        );
+
+                    const campoHorario =
+                        document.getElementById(
+                            "horario-selecionado"
+                        );
+
+                    if (campoData) {
+                        campoData.textContent =
+                            novaData;
+                    }
+
+                    if (campoHorario) {
+                        campoHorario.textContent =
+                            horario;
+                    }
+
+
+                    // ===============================
+                    // FECHA O MODAL
+                    // ===============================
+
+                    const modalData =
+                        document.getElementById(
+                            "modal-data"
+                        );
+
+                    if (modalData) {
+
+                        modalData.classList.remove(
+                            "aberto"
+                        );
+
+                    }
+
+                }
+            );
+
+        });
+
+
+        // ===============================
+        // CONVERTER DATA
+        // ===============================
+
+        function converterDataParaURL(data) {
+
+            const partes =
+                data.split(" ");
+
+            if (partes.length < 2) {
+                return "";
+            }
+
+            const dia =
+                partes[0];
+
+            const meses = {
+                "Jan": "01",
+                "Fev": "02",
+                "Mar": "03",
+                "Abr": "04",
+                "Mai": "05",
+                "Jun": "06",
+                "Jul": "07",
+                "Ago": "08",
+                "Set": "09",
+                "Out": "10",
+                "Nov": "11",
+                "Dez": "12"
+            };
+
+            const mes =
+                meses[partes[1]];
+
+            if (!mes) {
+                return "";
+            }
+
+            return dia + "." + mes;
+        } 
+        // ===============================
+        // NAVEGAÇÃO DAS DATAS DO MODAL
+        // ===============================
+
+        const btnDataAnterior =
+            document.getElementById("btn-data-anterior");
+
+        const btnDataProxima =
+            document.getElementById("btn-data-proxima");
+
+        const colunasData =
+            document.querySelectorAll(".data-coluna");
+
+
+        // Controla se o usuário pediu pra ver
+        // todos os horários extras manualmente
+        // (botão "Ver mais horários" do modal)
+        let mostrarTodosHorariosModal = false;
+
+
+        // Data inicial do modal
+        let inicioModal =
+            new Date(2026, 8, 15);
+
+
+        // Nunca deixa o modal abrir mostrando
+        // um dia que já passou
+
+        const hojeInicial =
+            new Date();
+
+        hojeInicial.setHours(0, 0, 0, 0);
+
+        if (inicioModal < hojeInicial) {
+
+            inicioModal =
+                new Date(hojeInicial);
+
+        }
+
+
+        // ===============================
+        // ATUALIZAR DATAS
+        // ===============================
+
+        function atualizarDatasModal() {
+
+            const nomesDias = [
+                "Dom.",
+                "Seg.",
+                "Ter.",
+                "Qua.",
+                "Qui.",
+                "Sex.",
+                "Sáb."
+            ];
+
+            const nomesMeses = [
+                "Jan",
+                "Fev",
+                "Mar",
+                "Abr",
+                "Mai",
+                "Jun",
+                "Jul",
+                "Ago",
+                "Set",
+                "Out",
+                "Nov",
+                "Dez"
+            ];
+
+
+            colunasData.forEach(function(coluna, indice) {
+
+                const data =
+                    new Date(inicioModal);
+
+                data.setDate(
+                    inicioModal.getDate() + indice
+                );
+
+
+                const diaSemana =
+                    coluna.querySelector("strong");
+
+                const dataTexto =
+                    coluna.querySelector("span");
+
+
+                if (diaSemana) {
+
+                    diaSemana.textContent =
+                        nomesDias[data.getDay()];
+
+                }
+
+
+                if (dataTexto) {
+
+                    dataTexto.textContent =
+                        String(data.getDate()).padStart(2, "0") +
+                        " " +
+                        nomesMeses[data.getMonth()];
+
+                }
+
+            });
+
+            atualizarHorariosModal();
+
+        }
+        // ===============================
+        // SETA ANTERIOR
+        // ===============================
+
+                if (btnDataAnterior) {
+
+            btnDataAnterior.addEventListener(
+                "click",
+                function() {
+
+                    const hoje = new Date();
+
+                    hoje.setHours(0, 0, 0, 0);
+
+                    const novaData =
+                        new Date(inicioModal);
+
+                    novaData.setDate(
+                        novaData.getDate() - 4
+                    );
+
+
+                    // Não permite voltar para datas passadas
+                    if (novaData < hoje) {
+
+                        inicioModal =
+                            new Date(hoje);
+
+                    } else {
+
+                        inicioModal =
+                            novaData;
+
+                    }
+
+                    atualizarDatasModal();
+                    atualizarHorariosPassados();
+
+                }
+            );
+
+        }
+
+
+        // ===============================
+        // SETA PRÓXIMA
+        // ===============================
+
+        if (btnDataProxima) {
+
+            btnDataProxima.addEventListener(
+                "click",
+                function() {
+
+                    inicioModal.setDate(
+                        inicioModal.getDate() + 4
+                    );
+
+                    atualizarDatasModal();
+                    atualizarHorariosPassados();
+
+                }
+            );
+
+        }
+
+
+        // ===============================
+        // INICIAR DATAS
+        // ===============================
+
+        atualizarDatasModal();
+        atualizarHorariosPassados();
+
+        // ===============================
+        // HORÁRIOS DO MODAL
+        // ===============================
+
+        const horariosModal = [
+            [
+                "08:00",
+                "08:30",
+                "09:00",
+                "09:30",
+                "10:00",
+                "10:30",
+                "11:00",
+                "11:30",
+                "14:00",
+                "14:30",
+                "15:00",
+                "15:30",
+                "16:00",
+                "16:30",
+                "17:00",
+                "17:30"
+            ],
+            [
+                "08:00",
+                "08:30",
+                "09:00",
+                "09:30",
+                "10:00",
+                "10:30",
+                "11:00",
+                "11:30",
+                "14:00",
+                "14:30",
+                "15:00",
+                "15:30",
+                "16:00",
+                "16:30",
+                "17:00",
+                "17:30"
+            ],
+            [
+                "08:00",
+                "08:30",
+                "09:00",
+                "09:30",
+                "10:00",
+                "10:30",
+                "11:00",
+                "11:30",
+                "14:00",
+                "14:30",
+                "15:00",
+                "15:30",
+                "16:00",
+                "16:30",
+                "17:00",
+                "17:30"
+            ],
+            [
+                "08:00",
+                "08:30",
+                "09:00",
+                "09:30",
+                "10:00",
+                "10:30",
+                "11:00",
+                "11:30",
+                "14:00",
+                "14:30",
+                "15:00",
+                "15:30",
+                "16:00",
+                "16:30",
+                "17:00",
+                "17:30"
+            ]
+        ];
+
+
+        function atualizarHorariosModal() {
+
+        colunasData.forEach(function(coluna, indice) {
+
+            const data = new Date(inicioModal);
+
+            data.setDate(
+                inicioModal.getDate() + indice
+            );
+
+            const diaSemana = data.getDay();
+
+            const botoes =
+                coluna.querySelectorAll("button");
+
+
+            // ===============================
+            // SÁBADO E DOMINGO
+            // ===============================
+
+            if (
+                diaSemana === 0 ||
+                diaSemana === 6
+            ) {
+
+                botoes.forEach(function(botao) {
+                    botao.style.display = "none";
+                });
+
+                let fechado =
+                    coluna.querySelector(".sem-horario-modal");
+
+                if (!fechado) {
+
+                    fechado =
+                        document.createElement("span");
+
+                    fechado.className =
+                        "sem-horario-modal";
+
+                    fechado.textContent =
+                        "Fechado";
+
+                    coluna.appendChild(fechado);
+                }
+
+                return;
+            }
+
+
+            // ===============================
+            // SEGUNDA A SEXTA
+            // ===============================
+
+            const horarios = [
+                "08:00",
+                "08:30",
+                "09:00",
+                "09:30",
+                "10:00",
+                "10:30",
+                "11:00",
+                "11:30",
+                "14:00",
+                "14:30",
+                "15:00",
+                "15:30",
+                "16:00",
+                "16:30",
+                "17:00",
+                "17:30"
+            ];
+
+
+            botoes.forEach(function(botao, indiceHorario) {
+
+                botao.style.display = "block";
+
+                botao.textContent =
+                    horarios[indiceHorario];
+
+            });
+
+
+            const fechado =
+                coluna.querySelector(".sem-horario-modal");
+
+            if (fechado) {
+                fechado.remove();
+            }
+
+        });
+
+    }
+        // ===============================
+        // VER MAIS HORÁRIOS - MODAL
+        // ===============================
+
+        const btnVerMaisModal =
+            document.getElementById("btn-ver-mais-modal");
+
+        if (btnVerMaisModal) {
+
+            btnVerMaisModal.addEventListener(
+                "click",
+                function() {
+
+                    mostrarTodosHorariosModal =
+                        !mostrarTodosHorariosModal;
+
+
+                    // Reaplica a exibição de todas as colunas
+                    // com a regra atualizada — assim nenhuma
+                    // coluna fica com estado "esquecido"
+
+                    atualizarHorariosPassados();
+
+
+                    if (mostrarTodosHorariosModal) {
+
+                        btnVerMaisModal.innerHTML =
+                            '<i class="fa-solid fa-minus"></i> Mostrar menos';
+
+                    } else {
+
+                        btnVerMaisModal.innerHTML =
+                            '<i class="fa-solid fa-plus"></i> Ver mais horários';
+
+                    }
+
+                }
+            );
+
+        }
+        // ===============================
+        // BLOQUEAR HORÁRIOS JÁ PASSADOS
+        // ===============================
+
+        function atualizarHorariosPassados() {
+
+            const agora = new Date();
+
+            // Datas que aparecem no modal agora
+            // (para buscar os horários reservados)
+            const datasVisiveis = [];
+
+            const hoje = new Date();
+            hoje.setHours(0, 0, 0, 0);
+
+            colunasData.forEach(function(coluna) {
+
+                const dataTexto =
+                    coluna.querySelector("span")
+                        .textContent
+                        .trim();
+
+                const partes =
+                    dataTexto.split(" ");
+
+                if (partes.length < 2) {
+                    return;
+                }
+
+                const dia =
+                    parseInt(partes[0]);
+
+                const meses = {
+                    "Jan": 0,
+                    "Fev": 1,
+                    "Mar": 2,
+                    "Abr": 3,
+                    "Mai": 4,
+                    "Jun": 5,
+                    "Jul": 6,
+                    "Ago": 7,
+                    "Set": 8,
+                    "Out": 9,
+                    "Nov": 10,
+                    "Dez": 11
+                };
+
+                const mes =
+                    meses[partes[1]];
+
+                if (mes === undefined) {
+                    return;
+                }
+
+                const dataColuna =
+                    new Date(
+                        anoDaConsulta(mes),
+                        mes,
+                        dia
+                    );
+
+                // Sábado e domingo já são tratados como
+                // fechados pela atualizarHorariosModal().
+                // Não mexe nos botões nem no texto dessas
+                // colunas aqui.
+
+                const diaSemanaColuna =
+                    dataColuna.getDay();
+
+                if (
+                    diaSemanaColuna === 0 ||
+                    diaSemanaColuna === 6
+                ) {
+                    return;
+                }
+
+                // Se o dia inteiro já ficou no passado
+                // (antes de hoje), nenhum horário dele
+                // pode ficar disponível
+
+                datasVisiveis.push(dataColuna);
+
+                const diaJaPassou =
+                    dataColuna.getTime() < hoje.getTime();
+
+                const ehHoje =
+                    dataColuna.getTime() === hoje.getTime();
+
+                const botoes =
+                    coluna.querySelectorAll(
+                        "button"
+                    );
+
+                botoes.forEach(function(botao) {
+
+                    const horario =
+                        botao.textContent.trim();
+
+                    const partesHorario =
+                        horario.split(":");
+
+                    if (partesHorario.length !== 2) {
+                        return;
+                    }
+
+                    const hora =
+                        parseInt(partesHorario[0]);
+
+                    const minuto =
+                        parseInt(partesHorario[1]);
+
+                    const dataHorario =
+                        new Date(
+                            dataColuna.getFullYear(),
+                            dataColuna.getMonth(),
+                            dataColuna.getDate(),
+                            hora,
+                            minuto
+                        );
+
+                    const ocupado =
+                        horariosOcupadosModal.has(
+                            formatarDataISO(dataColuna) + " " + horario
+                        );
+
+                    if (
+                        diaJaPassou ||
+                        (ehHoje && dataHorario <= agora) ||
+                        ocupado
+                    ) {
+
+                        botao.disabled = true;
+                        botao.style.display = "none";
+
+                    } else {
+
+                        botao.disabled = false;
+                        botao.style.display = "";
+
+                    }
+
+                });
+
+
+                // ===============================
+                // REORGANIZA A COLUNA DEPOIS DE
+                // ESCONDER OS HORÁRIOS PASSADOS
+                // ===============================
+
+                // Colunas de fim de semana já têm
+                // "Fechado" fixo (.sem-horario-modal) —
+                // não mexe nelas.
+                // (:not(.sem-horario-dinamico-modal) garante que
+                // a nossa própria mensagem dinâmica não seja
+                // confundida com o aviso fixo de fim de semana)
+
+                if (
+                    coluna.querySelector(
+                        ".sem-horario-modal:not(.sem-horario-dinamico-modal)"
+                    )
+                ) {
+                    return;
+                }
+
+                const botoesPrincipais =
+                    Array.from(coluna.children).filter(
+                        function(el) {
+                            return el.tagName === "BUTTON";
+                        }
+                    );
+
+                const temPrincipalVisivel =
+                    botoesPrincipais.some(function(botao) {
+                        return botao.style.display !== "none";
+                    });
+
+                const containerExtras =
+                    coluna.querySelector(".horarios-extras-modal");
+
+                let temExtraVisivel = false;
+
+                if (containerExtras) {
+
+                    temExtraVisivel =
+                        Array.from(
+                            containerExtras.querySelectorAll("button")
+                        ).some(function(botao) {
+                            return botao.style.display !== "none";
+                        });
+
+                    // Se não sobrou nenhum horário "principal",
+                    // mas ainda existe horário nos "extras",
+                    // essa coluna PRECISA estar aberta
+
+                    const precisaAbrirSozinha =
+                        !temPrincipalVisivel && temExtraVisivel;
+
+                    if (precisaAbrirSozinha) {
+
+                        containerExtras.classList.add("sempre-aberto");
+                        containerExtras.classList.add("mostrar");
+
+                    } else {
+
+                        containerExtras.classList.remove("sempre-aberto");
+
+                        // Se não precisa abrir sozinha, o estado dela
+                        // depende só de o usuário ter clicado ou não
+                        // em "Ver mais horários" — nunca fica com uma
+                        // classe "esquecida" de uma data anterior
+
+                        if (mostrarTodosHorariosModal) {
+
+                            containerExtras.classList.add("mostrar");
+
+                        } else {
+
+                            containerExtras.classList.remove("mostrar");
+
+                        }
+
+                    }
+
+                }
+
+
+                // Remove uma mensagem antiga, se existir,
+                // antes de decidir se precisa recriar
+
+                const mensagemAntiga =
+                    coluna.querySelector(".sem-horario-dinamico-modal");
+
+                if (mensagemAntiga) {
+                    mensagemAntiga.remove();
+                }
+
+
+                // Se não sobrou horário nenhum (nem principal,
+                // nem extra), mostra uma mensagem no lugar do branco
+
+                if (!temPrincipalVisivel && !temExtraVisivel) {
+
+                    const mensagem =
+                        document.createElement("span");
+
+                    mensagem.className =
+                        "sem-horario-modal sem-horario-dinamico-modal";
+
+                    mensagem.textContent =
+                        "Sem horários disponíveis";
+
+                    coluna.appendChild(mensagem);
+
+                }
+
+            });
+
+            carregarHorariosOcupadosModal(datasVisiveis);
+
+        }
+
+
+        // ===============================
+        // HORÁRIOS JÁ RESERVADOS (SUPABASE)
+        // ===============================
+
+        // (as listas ficam no início do script)
+
+        function formatarDataISO(data) {
+
+            return data.getFullYear() + "-" +
+                String(data.getMonth() + 1).padStart(2, "0") + "-" +
+                String(data.getDate()).padStart(2, "0");
+
+        }
+
+        function carregarHorariosOcupadosModal(datas) {
+
+            if (
+                datas.length === 0 ||
+                typeof supabaseClient === "undefined"
+            ) {
+                return;
+            }
+
+            const ordenadas =
+                datas.slice().sort(function(a, b) {
+                    return a - b;
+                });
+
+            const inicio = formatarDataISO(ordenadas[0]);
+            const fim = formatarDataISO(ordenadas[ordenadas.length - 1]);
+            const periodo = inicio + "|" + fim;
+
+            if (periodosCarregadosModal.has(periodo)) {
+                return;
+            }
+
+            periodosCarregadosModal.add(periodo);
+
+            supabaseClient
+                .rpc("horarios_ocupados", {
+                    inicio: inicio,
+                    fim: fim
+                })
+                .then(function(resposta) {
+
+                    if (resposta.error) {
+
+                        periodosCarregadosModal.delete(periodo);
+                        console.error("Erro ao buscar horários ocupados:", resposta.error);
+                        return;
+
+                    }
+
+                    if (!resposta.data || resposta.data.length === 0) {
+                        return;
+                    }
+
+                    resposta.data.forEach(function(item) {
+
+                        horariosOcupadosModal.add(
+                            item.data_consulta + " " + item.horario.slice(0, 5)
+                        );
+
+                    });
+
+                    // Redesenha para esconder os horários reservados
+                    atualizarHorariosPassados();
+
+                });
+
+        }
+        // ===============================
+        // CONTINUAR PARA DADOS DO PACIENTE
+        // ===============================
+
+        const btnContinuarOpcoes =
+            document.getElementById("btn-continuar-opcoes");
+
+        const cardOpcoesConsulta =
+            document.querySelector(".card-opcoes-consulta");
+
+        const cardDadosPaciente =
+            document.getElementById("card-dados-paciente");
+
+
+        if (
+            btnContinuarOpcoes &&
+            cardOpcoesConsulta &&
+            cardDadosPaciente
+        ) {
+
+            cardDadosPaciente.style.display = "none";
+
+
+            btnContinuarOpcoes.addEventListener(
+                "click",
+                function() {
+
+                    cardOpcoesConsulta.style.display =
+                        "none";
+
+                    cardDadosPaciente.style.display =
+                        "block";
+
+                }
+            );
+
+        }
+        // ===============================
+        // VOLTAR ENTRE AS ETAPAS
+        // ===============================
+
+        const btnVoltarEtapa =
+            document.getElementById("btn-voltar-etapa");
+
+        if (btnVoltarEtapa) {
+
+            btnVoltarEtapa.addEventListener(
+                "click",
+                function() {
+
+                    // Se estiver em "Verificar e reservar",
+                    // volta para as opções da consulta
+
+                    if (
+                        cardDadosPaciente &&
+                        cardDadosPaciente.style.display === "block"
+                    ) {
+
+                        cardDadosPaciente.style.display =
+                            "none";
+
+                        cardOpcoesConsulta.style.display =
+                            "block";
+
+                        return;
+                    }
+
+
+                    // Se já estiver nas opções da consulta,
+                    // volta para o calendário
+
+                    window.location.href =
+                        "../index.html#agendamento";
+
+                }
+            );
+
+        }
+        // ===============================
+        // NAVEGAÇÃO E VALIDAÇÃO DA DATA DE NASCIMENTO
+        // ===============================
+
+        const camposDataNascimento =
+            document.querySelectorAll(".data-nascimento input");
+
+        camposDataNascimento.forEach(function(campo, indice) {
+
+            // Permite somente números
+            campo.addEventListener("input", function() {
+
+                campo.value =
+                    campo.value.replace(/\D/g, "");
+
+                // Avança automaticamente quando completar o campo
+                if (
+                    campo.value.length >= campo.maxLength &&
+                    indice < camposDataNascimento.length - 1
+                ) {
+                    camposDataNascimento[indice + 1].focus();
+                }
+
+            });
+
+            // Volta para o campo anterior com Backspace
+            campo.addEventListener("keydown", function(event) {
+
+                if (
+                    event.key === "Backspace" &&
+                    campo.value === "" &&
+                    indice > 0
+                ) {
+                    camposDataNascimento[indice - 1].focus();
+                }
+
+            });
+
+        });
+        // ===============================
+        // VALIDAÇÃO DO NOME DO PACIENTE
+        // ===============================
+
+        const campoNome =
+            document.querySelector('.secao-dados input[placeholder="Digite seu nome completo"]');
+
+        if (campoNome) {
+
+            campoNome.addEventListener("input", function() {
+
+                // Permite apenas letras, acentos e espaços
+                campoNome.value =
+                    campoNome.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, "");
+
+            });
+
+        }
+        // ===============================
+        // MÁSCARA DO NÚMERO DE CELULAR
+        // ===============================
+
+        const campoCelular =
+            document.querySelector('.secao-dados input[placeholder="(81) 9XXXX-XXXX"]');
+
+        if (campoCelular) {
+
+            campoCelular.addEventListener("input", function() {
+
+                // Remove tudo que não for número
+                let numero =
+                    campoCelular.value.replace(/\D/g, "");
+
+                // Limita a 11 números
+                numero = numero.substring(0, 11);
+
+                // Aplica a máscara
+                if (numero.length <= 2) {
+                    campoCelular.value =
+                        numero.length > 0
+                            ? "(" + numero
+                            : "";
+
+                } else if (numero.length <= 7) {
+                    campoCelular.value =
+                        "(" +
+                        numero.substring(0, 2) +
+                        ") " +
+                        numero.substring(2);
+
+                } else {
+                    campoCelular.value =
+                        "(" +
+                        numero.substring(0, 2) +
+                        ") " +
+                        numero.substring(2, 7) +
+                        "-" +
+                        numero.substring(7);
+                }
+
+            });
+
+        }
+        // ===============================
+        // SALVAR AGENDAMENTO NO SUPABASE
+        // ===============================
+        // Retorna "salvo", "ocupado" (outra pessoa já
+        // reservou o horário) ou "erro" (sem conexão,
+        // tabela não criada etc.)
+
+        function salvarAgendamento(dados) {
+
+            // Lê da URL porque "Mudar a data" pode ter trocado
+            const parametrosAtuais =
+                new URLSearchParams(window.location.search);
+
+            const dataURL = parametrosAtuais.get("data") || "";
+            const horarioURL = parametrosAtuais.get("horario") || "";
+
+            const partesData = dataURL.split(".");
+            const indiceMes = parseInt(partesData[1], 10) - 1;
+
+            const dataConsulta =
+                anoDaConsulta(indiceMes) + "-" +
+                partesData[1] + "-" + partesData[0];
+
+            const partesNascimento =
+                dados.dataNascimentoTexto.split("/");
+
+            const dataNascimentoISO =
+                partesNascimento.length === 3
+                    ? partesNascimento[2] + "-" + partesNascimento[1] + "-" + partesNascimento[0]
+                    : null;
+
+            const opcaoPrimeiraConsulta =
+                document.querySelector('input[name="primeira-consulta"]:checked');
+
+            const aceiteComunicacoes =
+                document.getElementById("aceite-comunicacoes");
+
+            if (typeof supabaseClient === "undefined") {
+                console.error("Supabase não carregou.");
+                return Promise.resolve("erro");
+            }
+
+            return supabaseClient
+                .from("agendamentos")
+                .insert({
+                    data_consulta: dataConsulta,
+                    horario: horarioURL,
+                    tipo_consulta: dados.tipoConsulta,
+                    primeira_consulta:
+                        opcaoPrimeiraConsulta
+                            ? opcaoPrimeiraConsulta.value === "sim"
+                            : null,
+                    observacoes: dados.observacoes,
+                    nome_paciente: dados.nomePaciente,
+                    data_nascimento: dataNascimentoISO,
+                    telefone: dados.telefone,
+                    email: dados.email.toLowerCase(),
+                    aceita_comunicacoes:
+                        aceiteComunicacoes ? aceiteComunicacoes.checked : false
+                })
+                .then(function(resposta) {
+
+                    if (!resposta.error) {
+                        return "salvo";
+                    }
+
+                    // 23505 = já existe agendamento nesse dia e horário
+                    if (resposta.error.code === "23505") {
+                        return "ocupado";
+                    }
+
+                    console.error("Erro ao salvar agendamento:", resposta.error);
+                    return "erro";
+
+                })
+                .catch(function(erro) {
+
+                    console.error("Erro ao salvar agendamento:", erro);
+                    return "erro";
+
+                });
+        }
+
+
+        // ===============================
+        // BOTÃO CONFIRMAR DADOS
+        // ===============================
+
+        const btnConfirmarDados =
+            document.getElementById("btn-confirmar-dados");
+
+                // ===============================
+                // VALIDAÇÃO DOS DADOS DO PACIENTE
+                // ===============================
+
+                const campoEmail =
+                    document.getElementById("email-paciente");
+
+                const campoAceite =
+                    document.getElementById("aceite-dados");
+
+
+                // ===============================
+                // FUNÇÕES AUXILIARES DE ERRO
+                // ===============================
+
+                function mostrarErro(idErro, mensagem, campoInvalido) {
+
+                    const elementoErro =
+                        document.getElementById(idErro);
+
+                    if (elementoErro) {
+
+                        elementoErro.textContent = mensagem;
+                        elementoErro.classList.add("mostrar");
+
+                    }
+
+                    if (campoInvalido) {
+
+                        campoInvalido.classList.add("campo-invalido");
+
+                    }
+
+                }
+
+                function limparErro(idErro, campoInvalido) {
+
+                    const elementoErro =
+                        document.getElementById(idErro);
+
+                    if (elementoErro) {
+
+                        elementoErro.textContent = "";
+                        elementoErro.classList.remove("mostrar");
+
+                    }
+
+                    if (campoInvalido) {
+
+                        campoInvalido.classList.remove("campo-invalido");
+
+                    }
+
+                }
+
+                function limparTodosOsErros() {
+
+                    limparErro("erro-nome", campoNome);
+                    limparErro("erro-nascimento", null);
+
+                    camposDataNascimento.forEach(function(campo) {
+                        campo.classList.remove("campo-invalido");
+                    });
+
+                    limparErro("erro-telefone", campoCelular);
+                    limparErro("erro-email", campoEmail);
+
+                    const rotuloAceite =
+                        campoAceite ? campoAceite.closest(".aceite-dados") : null;
+
+                    limparErro("erro-aceite", rotuloAceite);
+                    limparErro("erro-agendamento", null);
+
+                }
+
+
+                if (btnConfirmarDados) {
+
+                    btnConfirmarDados.addEventListener("click", function() {
+
+                        limparTodosOsErros();
+
+                        let primeiroCampoInvalido = null;
+
+
+                        // -------------------------------
+                        // 1. NOME COMPLETO
+                        // -------------------------------
+
+                        if (!campoNome || campoNome.value.trim() === "") {
+
+                            mostrarErro(
+                                "erro-nome",
+                                "Informe seu nome completo.",
+                                campoNome
+                            );
+
+                            primeiroCampoInvalido =
+                                primeiroCampoInvalido || campoNome;
+
+                        }
+
+
+                        // -------------------------------
+                        // 2. DATA DE NASCIMENTO
+                        // -------------------------------
+
+                        let dataNascimentoTexto = "";
+
+                        if (!camposDataNascimento ||
+                            camposDataNascimento.length < 3) {
+
+                            mostrarErro(
+                                "erro-nascimento",
+                                "Informe sua data de nascimento."
+                            );
+
+                            primeiroCampoInvalido =
+                                primeiroCampoInvalido || camposDataNascimento[0];
+
+                        } else {
+
+                            const dia =
+                                camposDataNascimento[0].value.trim();
+
+                            const mes =
+                                camposDataNascimento[1].value.trim();
+
+                            const ano =
+                                camposDataNascimento[2].value.trim();
+
+                            if (
+                                dia.length !== 2 ||
+                                mes.length !== 2 ||
+                                ano.length !== 4
+                            ) {
+
+                                mostrarErro(
+                                    "erro-nascimento",
+                                    "Preencha o dia, o mês e o ano completos."
+                                );
+
+                                camposDataNascimento.forEach(function(campo) {
+                                    campo.classList.add("campo-invalido");
+                                });
+
+                                primeiroCampoInvalido =
+                                    primeiroCampoInvalido || camposDataNascimento[0];
+
+                            } else {
+
+                                const numeroDia = parseInt(dia, 10);
+                                const numeroMes = parseInt(mes, 10);
+                                const numeroAno = parseInt(ano, 10);
+
+                                const dataNascimento =
+                                    new Date(
+                                        numeroAno,
+                                        numeroMes - 1,
+                                        numeroDia
+                                    );
+
+                                const dataValida =
+                                    dataNascimento.getFullYear() === numeroAno &&
+                                    dataNascimento.getMonth() === numeroMes - 1 &&
+                                    dataNascimento.getDate() === numeroDia;
+
+                                if (
+                                    numeroMes < 1 ||
+                                    numeroMes > 12 ||
+                                    numeroDia < 1 ||
+                                    numeroDia > 31 ||
+                                    !dataValida
+                                ) {
+
+                                    mostrarErro(
+                                        "erro-nascimento",
+                                        "Informe uma data de nascimento válida."
+                                    );
+
+                                    camposDataNascimento.forEach(function(campo) {
+                                        campo.classList.add("campo-invalido");
+                                    });
+
+                                    primeiroCampoInvalido =
+                                        primeiroCampoInvalido || camposDataNascimento[0];
+
+                                } else {
+
+                                    dataNascimentoTexto =
+                                        dia + "/" + mes + "/" + ano;
+
+                                }
+
+                            }
+
+                        }
+
+
+                        // -------------------------------
+                        // 3. CELULAR
+                        // -------------------------------
+
+                        const numeroCelular =
+                            campoCelular.value.replace(/\D/g, "");
+
+                        if (numeroCelular.length !== 11) {
+
+                            mostrarErro(
+                                "erro-telefone",
+                                "Informe um número de celular válido, com DDD.",
+                                campoCelular
+                            );
+
+                            primeiroCampoInvalido =
+                                primeiroCampoInvalido || campoCelular;
+
+                        }
+
+
+                        // -------------------------------
+                        // 4. E-MAIL
+                        // -------------------------------
+
+                        if (
+                            !campoEmail ||
+                            campoEmail.value.trim() === ""
+                        ) {
+
+                            mostrarErro(
+                                "erro-email",
+                                "Informe seu e-mail.",
+                                campoEmail
+                            );
+
+                            primeiroCampoInvalido =
+                                primeiroCampoInvalido || campoEmail;
+
+                        } else if (!campoEmail.checkValidity()) {
+
+                            mostrarErro(
+                                "erro-email",
+                                "Informe um endereço de e-mail válido.",
+                                campoEmail
+                            );
+
+                            primeiroCampoInvalido =
+                                primeiroCampoInvalido || campoEmail;
+
+                        }
+
+
+                        // -------------------------------
+                        // 5. ACEITE DOS DADOS
+                        // -------------------------------
+
+                        if (!campoAceite || !campoAceite.checked) {
+
+                            const rotuloAceite =
+                                campoAceite
+                                    ? campoAceite.closest(".aceite-dados")
+                                    : null;
+
+                            mostrarErro(
+                                "erro-aceite",
+                                "É necessário autorizar o uso dos seus dados para continuar.",
+                                rotuloAceite
+                            );
+
+                            primeiroCampoInvalido =
+                                primeiroCampoInvalido || campoAceite;
+
+                        }
+
+
+                        // -------------------------------
+                        // SE HOUVER ALGUM ERRO, PARA AQUI
+                        // -------------------------------
+
+                        if (primeiroCampoInvalido) {
+
+                            primeiroCampoInvalido.scrollIntoView({
+                                behavior: "smooth",
+                                block: "center"
+                            });
+
+                            primeiroCampoInvalido.focus();
+
+                            return;
+
+                        }
+
+
+                        // -------------------------------
+                        // MONTAR MENSAGEM DE CONFIRMAÇÃO
+                        // -------------------------------
+
+                        const nomePaciente =
+                            campoNome.value.trim();
+
+                        const campoTipoVisita =
+                            document.querySelector(".campo-opcao span");
+
+                        const tipoConsultaEscolhida =
+                            campoTipoVisita
+                                ? campoTipoVisita.textContent.trim()
+                                : "Consulta odontológica";
+
+                        const dataHorarioTexto =
+                            dataHorarioConsulta
+                                ? dataHorarioConsulta.textContent.trim()
+                                : "";
+
+                        const observacaoPaciente =
+                            document.getElementById("observacao-paciente");
+
+                        const textoObservacao =
+                            observacaoPaciente && observacaoPaciente.value.trim() !== ""
+                                ? observacaoPaciente.value.trim()
+                                : "Nenhuma";
+
+                        const numeroWhatsappClinica =
+                            "5581988042614";
+
+                        const mensagemWhatsapp =
+                            "*Novo agendamento — OdontoConnect*\n\n" +
+                            "Olá, Dra. Gabriela! Um paciente confirmou um " +
+                            "agendamento pelo site com os seguintes dados:\n\n" +
+                            "*Paciente:* " + nomePaciente + "\n" +
+                            "*Data de nascimento:* " + dataNascimentoTexto + "\n" +
+                            "*Telefone:* " + campoCelular.value + "\n" +
+                            "*E-mail:* " + campoEmail.value.trim() + "\n\n" +
+                            "*Tipo de consulta:* " + tipoConsultaEscolhida + "\n" +
+                            "*Data e horário:* " + dataHorarioTexto + "\n" +
+                            "*Observações:* " + textoObservacao + "\n\n" +
+                            "Aguardo a confirmação. Obrigado(a)!";
+
+                        const linkWhatsappConfirmacao =
+                            "https://wa.me/" + numeroWhatsappClinica +
+                            "?text=" + encodeURIComponent(mensagemWhatsapp);
+
+
+                        // -------------------------------
+                        // TODOS OS DADOS ESTÃO CORRETOS
+                        // -------------------------------
+
+                        // Abre a aba do WhatsApp já agora, no clique,
+                        // para o navegador não bloquear como pop-up.
+                        // O endereço é colocado depois que o banco responder.
+                        const janelaWhatsapp =
+                            window.open("", "_blank");
+
+                        btnConfirmarDados.disabled = true;
+                        btnConfirmarDados.textContent = "Salvando...";
+
+                        salvarAgendamento({
+                            nomePaciente: nomePaciente,
+                            dataNascimentoTexto: dataNascimentoTexto,
+                            telefone: campoCelular.value,
+                            email: campoEmail.value.trim(),
+                            tipoConsulta: tipoConsultaEscolhida,
+                            observacoes:
+                                textoObservacao === "Nenhuma" ? null : textoObservacao
+                        }).then(function(resultado) {
+
+                            btnConfirmarDados.disabled = false;
+                            btnConfirmarDados.textContent = "Continuar";
+
+                            if (resultado === "ocupado") {
+
+                                if (janelaWhatsapp) {
+                                    janelaWhatsapp.close();
+                                }
+
+                                mostrarErro(
+                                    "erro-agendamento",
+                                    "Esse horário acabou de ser reservado por outra pessoa. " +
+                                    "Clique em \"Mudar a data\" e escolha outro horário.",
+                                    null
+                                );
+
+                                document
+                                    .getElementById("erro-agendamento")
+                                    .scrollIntoView({
+                                        behavior: "smooth",
+                                        block: "center"
+                                    });
+
+                                return;
+
+                            }
+
+                            // Salvou no banco ou o banco está fora do ar:
+                            // em ambos os casos a clínica recebe pelo WhatsApp
+                            if (janelaWhatsapp) {
+                                janelaWhatsapp.location.href = linkWhatsappConfirmacao;
+                            } else {
+                                window.location.href = linkWhatsappConfirmacao;
+                            }
+
+                        });
+
+                    });
+
+                }
+    </script>
+
+</body>
+
+</html>

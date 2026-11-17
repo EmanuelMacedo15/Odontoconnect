@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" href="../imagens/favicon.ico" type="image/x-icon">
+
+    <title>Painel da clínica | OdontoConnect</title>
+
+    <link rel="stylesheet" href="Painel.css">
+
+</head>
+
+
+<body>
+
+    <!-- ===============================
+         CABEÇALHO
+         =============================== -->
+
+    <header class="cabecalho-painel">
+
+        <a href="../index.html" class="voltar-site">
+            ← Voltar ao site
+        </a>
+
+        <div class="logo-odonto-connect">
+            <img src="../imagens/logo-odontoconnect.png" alt="">
+            <span>ODONTOCONNECT</span>
+        </div>
+
+        <div class="usuario-logado" id="usuario-logado" hidden>
+            <span id="email-usuario"></span>
+            <button type="button" class="btn btn-secundario" id="btn-sair">
+                Sair
+            </button>
+        </div>
+
+    </header>
+
+
+    <!-- ===============================
+         LOGIN
+         =============================== -->
+
+    <main class="area-login" id="area-login" hidden>
+
+        <form class="card-login" id="form-login" novalidate>
+
+            <h1>Área da clínica</h1>
+
+            <p>
+                Entre com o e-mail e a senha da equipe para ver
+                e gerenciar os agendamentos.
+            </p>
+
+            <div class="campo">
+                <label for="email-login">E-mail</label>
+                <input
+                    type="email"
+                    id="email-login"
+                    autocomplete="username"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label for="senha-login">Senha</label>
+                <input
+                    type="password"
+                    id="senha-login"
+                    autocomplete="current-password"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn btn-principal" id="btn-entrar">
+                Entrar
+            </button>
+
+            <p class="mensagem-erro" id="erro-login" role="alert"></p>
+
+        </form>
+
+    </main>
+
+
+    <!-- ===============================
+         PAINEL
+         =============================== -->
+
+    <main class="area-painel" id="area-painel" hidden>
+
+        <div class="topo-painel">
+
+            <div>
+                <h1>Agendamentos</h1>
+                <p id="saudacao">Consultas marcadas pelo site.</p>
+            </div>
+
+            <button type="button" class="btn btn-secundario" id="btn-atualizar">
+                ↻ Atualizar
+            </button>
+
+        </div>
+
+
+        <div class="resumo">
+
+            <div class="resumo-item destaque">
+                <strong id="total-pendentes">–</strong>
+                <span>aguardando confirmação</span>
+            </div>
+
+            <div class="resumo-item">
+                <strong id="total-hoje">–</strong>
+                <span>consultas hoje</span>
+            </div>
+
+            <div class="resumo-item">
+                <strong id="total-semana">–</strong>
+                <span>nos próximos 7 dias</span>
+            </div>
+
+        </div>
+
+
+        <div class="filtros" role="tablist">
+
+            <button type="button" class="filtro ativo" data-filtro="proximos">
+                Próximos
+            </button>
+
+            <button type="button" class="filtro" data-filtro="pendentes">
+                Pendentes
+            </button>
+
+            <button type="button" class="filtro" data-filtro="historico">
+                Já realizados
+            </button>
+
+            <button type="button" class="filtro" data-filtro="cancelados">
+                Cancelados
+            </button>
+
+        </div>
+
+
+        <div id="lista-agendamentos"></div>
+
+        <p class="atualizado-em" id="atualizado-em"></p>
+
+    </main>
+
+
+    <!-- ===============================
+         PRONTUÁRIO DO PACIENTE
+         =============================== -->
+
+    <dialog class="modal-historico modal-prontuario" id="modal-prontuario" aria-labelledby="prontuario-nome">
+
+        <div class="historico-topo">
+
+            <div class="historico-identificacao">
+                <p class="historico-rotulo">Prontuário</p>
+                <h2 id="prontuario-nome"></h2>
+                <div class="agendamento-detalhes" id="prontuario-contato"></div>
+                <div class="acesso-prontuario" id="prontuario-acesso"></div>
+            </div>
+
+            <button
+                type="button"
+                class="btn-fechar-historico"
+                id="btn-fechar-prontuario"
+                aria-label="Fechar"
+            >
+                ✕
+            </button>
+
+        </div>
+
+        <div class="abas-prontuario" role="tablist">
+            <button type="button" class="aba-prontuario ativa" data-aba="consultas" role="tab">Consultas</button>
+            <button type="button" class="aba-prontuario" data-aba="odontograma" role="tab">Odontograma</button>
+            <button type="button" class="aba-prontuario" data-aba="plano" role="tab">Plano de tratamento</button>
+            <button type="button" class="aba-prontuario" data-aba="arquivos" role="tab">Arquivos</button>
+        </div>
+
+        <div id="prontuario-conteudo" class="prontuario-conteudo"></div>
+
+    </dialog>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../supabase.js"></script>
+
+    <script>
+
+        // ===============================
+        // ELEMENTOS DA PÁGINA
+        // ===============================
+
+        const areaLogin = document.getElementById("area-login");
+        const areaPainel = document.getElementById("area-painel");
+        const usuarioLogado = document.getElementById("usuario-logado");
+        const emailUsuario = document.getElementById("email-usuario");
+
+        const formLogin = document.getElementById("form-login");
+        const campoEmailLogin = document.getElementById("email-login");
+        const campoSenhaLogin = document.getElementById("senha-login");
+        const btnEntrar = document.getElementById("btn-entrar");
+        const erroLogin = document.getElementById("erro-login");
+
+        const btnSair = document.getElementById("btn-sair");
+        const btnAtualizar = document.getElementById("btn-atualizar");
+        const listaAgendamentos = document.getElementById("lista-agendamentos");
+        const atualizadoEm = document.getElementById("atualizado-em");
+        const botoesFiltro = document.querySelectorAll(".filtro");
+
+        const NUMERO_WHATSAPP_PAIS = "55";
+
+        let filtroAtual = "proximos";
+        let atualizacaoAutomatica = null;
+
+
+        // ===============================
+        // DATAS
+        // ===============================
+
+        const nomesDiasSemana = [
+            "Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira",
+            "Quinta-feira", "Sexta-feira", "Sábado"
+        ];
+
+        const nomesMeses = [
+            "janeiro", "fevereiro", "março", "abril", "maio", "junho",
+            "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"
+        ];
+
+        function formatarDataISO(data) {
+
+            return data.getFullYear() + "-" +
+                String(data.getMonth() + 1).padStart(2, "0") + "-" +
+                String(data.getDate()).padStart(2, "0");
+
+        }
+
+        // "2026-11-17" -> Date local (sem problema de fuso)
+        function lerDataISO(texto) {
+
+            const partes = texto.split("-");
+
+            return new Date(
+                parseInt(partes[0], 10),
+                parseInt(partes[1], 10) - 1,
+                parseInt(partes[2], 10)
+            );
+
+        }
+
+        function hojeISO() {
+            return formatarDataISO(new Date());
+        }
+
+        function somarDiasISO(dias) {
+
+            const data = new Date();
+            data.setDate(data.getDate() + dias);
+            return formatarDataISO(data);
+
+        }
+
+        // "2026-11-17" -> "Terça-feira, 17 de novembro"
+        function tituloDoDia(textoISO) {
+
+            const data = lerDataISO(textoISO);
+
+            let titulo =
+                nomesDiasSemana[data.getDay()] + ", " +
+                data.getDate() + " de " + nomesMeses[data.getMonth()];
+
+            if (data.getFullYear() !== new Date().getFullYear()) {
+                titulo += " de " + data.getFullYear();
+            }
+
+            if (textoISO === hojeISO()) {
+                titulo = "Hoje · " + titulo;
+            } else if (textoISO === somarDiasISO(1)) {
+                titulo = "Amanhã · " + titulo;
+            }
+
+            return titulo;
+
+        }
+
+        // "1990-03-15" -> "15/03/1990"
+        function dataBrasileira(textoISO) {
+
+            if (!textoISO) {
+                return "";
+            }
+
+            const partes = textoISO.split("-");
+            return partes[2] + "/" + partes[1] + "/" + partes[0];
+
+        }
+
+
+        // ===============================
+        // MOSTRAR LOGIN OU PAINEL
+        // ===============================
+
+        function mostrarLogin(mensagem) {
+
+            areaPainel.hidden = true;
+            usuarioLogado.hidden = true;
+            areaLogin.hidden = false;
+
+            erroLogin.textContent = mensagem || "";
+
+            pararAtualizacaoAutomatica();
+
+        }
+
+        function mostrarPainel(usuario) {
+
+            areaLogin.hidden = true;
+            areaPainel.hidden = false;
+            usuarioLogado.hidden = false;
+
+            emailUsuario.textContent = usuario.email;
+
+            carregarTudo();
+            iniciarAtualizacaoAutomatica();
+
+        }
+
+
+        // ===============================
+        // CONFERIR SE É DA EQUIPE
+        // ===============================
+        // Ter login não basta: o usuário precisa estar
+        // cadastrado na tabela equipe_clinica.
+
+        function entrarSeForDaEquipe(usuario) {
+
+            return supabaseClient
+                .rpc("eh_equipe_clinica")
+                .then(function(resposta) {
+
+                    if (resposta.error) {
+
+                        console.error(resposta.error);
+
+                        return supabaseClient.auth.signOut().then(function() {
+                            mostrarLogin(
+                                "Não foi possível verificar o seu acesso. " +
+                                "Confira se o script painel-clinica.sql foi executado no Supabase."
+                            );
+                        });
+
+                    }
+
+                    if (resposta.data !== true) {
+
+                        return supabaseClient.auth.signOut().then(function() {
+                            mostrarLogin(
+                                "Este usuário não tem acesso ao painel da clínica."
+                            );
+                        });
+
+                    }
+
+                    mostrarPainel(usuario);
+
+                });
+
+        }
+
+
+        // ===============================
+        // LOGIN
+        // ===============================
+
+        formLogin.addEventListener("submit", function(evento) {
+
+            evento.preventDefault();
+
+            erroLogin.textContent = "";
+
+            const email = campoEmailLogin.value.trim();
+            const senha = campoSenhaLogin.value;
+
+            if (!email || !senha) {
+                erroLogin.textContent = "Preencha o e-mail e a senha.";
+                return;
+            }
+
+            btnEntrar.disabled = true;
+            btnEntrar.textContent = "Entrando...";
+
+            supabaseClient.auth
+                .signInWithPassword({ email: email, password: senha })
+                .then(function(resposta) {
+
+                    if (resposta.error) {
+
+                        const mensagem =
+                            resposta.error.message === "Invalid login credentials"
+                                ? "E-mail ou senha incorretos."
+                                : resposta.error.message === "Email not confirmed"
+                                    ? "Este e-mail ainda não foi confirmado no Supabase."
+                                    : "Não foi possível entrar. Tente novamente.";
+
+                        mostrarLogin(mensagem);
+                        return;
+
+                    }
+
+                    campoSenhaLogin.value = "";
+                    return entrarSeForDaEquipe(resposta.data.user);
+
+                })
+                .catch(function(erro) {
+
+                    console.error(erro);
+                    mostrarLogin("Sem conexão com o servidor. Tente novamente.");
+
+                })
+                .finally(function() {
+
+                    btnEntrar.disabled = false;
+                    btnEntrar.textContent = "Entrar";
+
+                });
+
+        });
+
+
+        // ===============================
+        // SAIR
+        // ===============================
+
+        btnSair.addEventListener("click", function() {
+
+            supabaseClient.auth.signOut().then(function() {
+                mostrarLogin();
+            });
+
+        });
+
+
+        // ===============================
+        // RESUMO (NÚMEROS NO TOPO)
+        // ===============================
+
+        function carregarResumo() {
+
+            const hoje = hojeISO();
+            const daquiSeteDias = somarDiasISO(6);
+
+            return supabaseClient
+                .from("agendamentos")
+                .select("data_consulta, status")
+                .gte("data_consulta", hoje)
+                .neq("status", "cancelado")
+                .then(function(resposta) {
+
+                    if (resposta.error) {
+                        throw resposta.error;
+                    }
+
+                    const lista = resposta.data;
+
+                    document.getElementById("total-pendentes").textContent =
+                        lista.filter(function(a) {
+                            return a.status === "pendente";
+                        }).length;
+
+                    document.getElementById("total-hoje").textContent =
+                        lista.filter(function(a) {
+                            return a.data_consulta === hoje;
+                        }).length;
+
+                    document.getElementById("total-semana").textContent =
+                        lista.filter(function(a) {
+                            return a.data_consulta <= daquiSeteDias;
+                        }).length;
+
+                });
+
+        }
+
+
+        // ===============================
+        // LISTA DE AGENDAMENTOS
+        // ===============================
+
+        function buscarAgendamentos() {
+
+            const hoje = hojeISO();
+
+            let consulta =
+                supabaseClient
+                    .from("agendamentos")
+                    .select("*");
+
+            if (filtroAtual === "proximos") {
+
+                consulta = consulta
+                    .gte("data_consulta", hoje)
+                    .neq("status", "cancelado")
+                    .order("data_consulta", { ascending: true })
+                    .order("horario", { ascending: true });
+
+            } else if (filtroAtual === "pendentes") {
+
+                consulta = consulta
+                    .gte("data_consulta", hoje)
+                    .eq("status", "pendente")
+                    .order("data_consulta", { ascending: true })
+                    .order("horario", { ascending: true });
+
+            } else if (filtroAtual === "historico") {
+
+                consulta = consulta
+                    .lt("data_consulta", hoje)
+                    .neq("status", "cancelado")
+                    .order("data_consulta", { ascending: false })
+                    .order("horario", { ascending: true })
+                    .limit(200);
+
+            } else {
+
+                consulta = consulta
+                    .eq("status", "cancelado")
+                    .order("data_consulta", { ascending: false })
+                    .order("horario", { ascending: true })
+                    .limit(200);
+
+            }
+
+            return consulta.then(function(resposta) {
+
+                if (resposta.error) {
+                    throw resposta.error;
+                }
+
+                return resposta.data;
+
+            });
+
+        }
+
+        function mostrarAviso(texto, ehErro) {
+
+            listaAgendamentos.innerHTML = "";
+
+            const aviso = document.createElement("div");
+            aviso.className = "aviso-lista" + (ehErro ? " erro" : "");
+            aviso.textContent = texto;
+
+            listaAgendamentos.appendChild(aviso);
+
+        }
+
+        const textosListaVazia = {
+            proximos: "Nenhuma consulta marcada para os próximos dias.",
+            pendentes: "Nenhum agendamento aguardando confirmação. Tudo em dia!",
+            historico: "Ainda não há consultas realizadas.",
+            cancelados: "Nenhum agendamento cancelado."
+        };
+
+        function desenharLista(agendamentos) {
+
+            listaAgendamentos.innerHTML = "";
+
+            if (agendamentos.length === 0) {
+                mostrarAviso(textosListaVazia[filtroAtual], false);
+                return;
+            }
+
+            let grupoAtual = null;
+            let dataDoGrupo = null;
+
+            agendamentos.forEach(function(agendamento) {
+
+                if (agendamento.data_consulta !== dataDoGrupo) {
+
+                    dataDoGrupo = agendamento.data_consulta;
+
+                    grupoAtual = document.createElement("section");
+                    grupoAtual.className = "grupo-dia";
+
+                    const titulo = document.createElement("h2");
+                    titulo.textContent = tituloDoDia(dataDoGrupo);
+
+                    grupoAtual.appendChild(titulo);
+                    listaAgendamentos.appendChild(grupoAtual);
+
+                }
+
+                grupoAtual.appendChild(criarCartao(agendamento));
+
+            });
+
+        }
+
+
+        // ===============================
+        // CARTÃO DE UM AGENDAMENTO
+        // ===============================
+        // Tudo que o paciente digitou entra com textContent,
+        // nunca com innerHTML, para não permitir código
+        // malicioso dentro do painel.
+
+        function criarElemento(tag, classe, texto) {
+
+            const elemento = document.createElement(tag);
+
+            if (classe) {
+                elemento.className = classe;
+            }
+
+            if (texto !== undefined && texto !== null) {
+                elemento.textContent = texto;
+            }
+
+            return elemento;
+
+        }
+
+        function linkWhatsappPaciente(agendamento, mensagem) {
+
+            const numero =
+                (agendamento.telefone || "").replace(/\D/g, "");
+
+            if (numero.length < 10) {
+                return null;
+            }
+
+            return "https://wa.me/" + NUMERO_WHATSAPP_PAIS + numero +
+                "?text=" + encodeURIComponent(mensagem);
+
+        }
+
+        function criarCartao(agendamento) {
+
+            const cartao = criarElemento(
+                "article",
+                "agendamento" + (agendamento.status === "cancelado" ? " cancelado" : "")
+            );
+
+            const horario = (agendamento.horario || "").slice(0, 5);
+
+
+            // Coluna 1: horário
+            cartao.appendChild(
+                criarElemento("div", "agendamento-hora", horario)
+            );
+
+
+            // Coluna 2: informações
+            const info = criarElemento("div", "agendamento-info");
+
+            const nome = criarElemento("div", "agendamento-nome");
+            const btnNome = criarElemento(
+                "button",
+                "link-paciente",
+                agendamento.nome_paciente
+            );
+            btnNome.type = "button";
+            btnNome.title = "Abrir prontuário do paciente";
+
+            btnNome.addEventListener("click", function() {
+                abrirProntuario(agendamento);
+            });
+
+            nome.appendChild(btnNome);
+            nome.appendChild(
+                criarElemento("span", "selo selo-" + agendamento.status, agendamento.status)
+            );
+            info.appendChild(nome);
+
+            let tipo = agendamento.tipo_consulta;
+
+            if (agendamento.primeira_consulta === true) {
+                tipo += " · primeira consulta";
+            } else if (agendamento.primeira_consulta === false) {
+                tipo += " · já é paciente";
+            }
+
+            info.appendChild(criarElemento("div", "agendamento-tipo", tipo));
+
+            const detalhes = criarElemento("div", "agendamento-detalhes");
+
+            const linkTelefone = linkWhatsappPaciente(agendamento, "");
+
+            if (linkTelefone) {
+
+                const telefone = criarElemento("a", null, "📱 " + agendamento.telefone);
+                telefone.href = linkTelefone.split("?")[0];
+                telefone.target = "_blank";
+                telefone.rel = "noopener";
+                detalhes.appendChild(telefone);
+
+            } else {
+
+                detalhes.appendChild(
+                    criarElemento("span", null, "📱 " + agendamento.telefone)
+                );
+
+            }
+
+            const email = criarElemento("a", null, "✉️ " + agendamento.email);
+            email.href = "mailto:" + encodeURIComponent(agendamento.email);
+            detalhes.appendChild(email);
+
+            if (agendamento.data_nascimento) {
+                detalhes.appendChild(
+                    criarElemento(
+                        "span",
+                        null,
+                        "🎂 " + dataBrasileira(agendamento.data_nascimento)
+                    )
+                );
+            }
+
+            info.appendChild(detalhes);
+
+            if (agendamento.observacoes) {
+                info.appendChild(
+                    criarElemento(
+                        "div",
+                        "agendamento-obs",
+                        "Observação: " + agendamento.observacoes
+                    )
+                );
+            }
+
+            cartao.appendChild(info);
+
+
+            // Coluna 3: ações
+            const acoes = criarElemento("div", "agendamento-acoes");
+            const consultaNoFuturo = agendamento.data_consulta >= hojeISO();
+
+            if (agendamento.status === "pendente" && consultaNoFuturo) {
+
+                const btnConfirmar =
+                    criarElemento("button", "btn btn-principal", "Confirmar");
+                btnConfirmar.type = "button";
+
+                btnConfirmar.addEventListener("click", function() {
+                    mudarStatus(agendamento, "confirmado", btnConfirmar);
+                });
+
+                acoes.appendChild(btnConfirmar);
+
+            }
+
+            if (agendamento.status === "confirmado" && consultaNoFuturo) {
+
+                const mensagem =
+                    "Olá, " + agendamento.nome_paciente.split(" ")[0] + "! " +
+                    "Sua consulta com a Dra. Gabriela Valois está confirmada para " +
+                    tituloDoDia(agendamento.data_consulta)
+                        .replace("Hoje · ", "hoje, ")
+                        .replace("Amanhã · ", "amanhã, ")
+                        .toLowerCase() +
+                    ", às " + horario + ". Até lá!";
+
+                const link = linkWhatsappPaciente(agendamento, mensagem);
+
+                if (link) {
+
+                    const btnAvisar =
+                        criarElemento("a", "btn btn-secundario", "Avisar paciente");
+                    btnAvisar.href = link;
+                    btnAvisar.target = "_blank";
+                    btnAvisar.rel = "noopener";
+
+                    acoes.appendChild(btnAvisar);
+
+                }
+
+            }
+
+            if (agendamento.status !== "cancelado" && consultaNoFuturo) {
+
+                const btnCancelar =
+                    criarElemento("button", "btn btn-perigo", "Cancelar");
+                btnCancelar.type = "button";
+
+                btnCancelar.addEventListener("click", function() {
+
+                    const confirmou = window.confirm(
+                        "Cancelar a consulta de " + agendamento.nome_paciente +
+                        " (" + dataBrasileira(agendamento.data_consulta) +
+                        " às " + horario + ")?\n\n" +
+                        "O horário volta a ficar livre no site."
+                    );
+
+                    if (confirmou) {
+                        mudarStatus(agendamento, "cancelado", btnCancelar);
+                    }
+
+                });
+
+                acoes.appendChild(btnCancelar);
+
+            }
+
+            cartao.appendChild(acoes);
+
+            return cartao;
+
+        }
+
+
+        // ===============================
+        // CONFIRMAR / CANCELAR
+        // ===============================
+
+        function mudarStatus(agendamento, novoStatus, botao) {
+
+            const textoOriginal = botao.textContent;
+
+            botao.disabled = true;
+            botao.textContent = "Salvando...";
+
+            supabaseClient
+                .from("agendamentos")
+                .update({ status: novoStatus })
+                .eq("id", agendamento.id)
+                .select("id")
+                .then(function(resposta) {
+
+                    if (resposta.error || !resposta.data || resposta.data.length === 0) {
+
+                        console.error(resposta.error);
+
+                        botao.disabled = false;
+                        botao.textContent = textoOriginal;
+
+                        window.alert(
+                            "Não foi possível salvar a alteração. " +
+                            "Atualize a página e tente novamente."
+                        );
+
+                        return;
+
+                    }
+
+                    carregarTudo();
+
+                });
+
+        }
+
+
+        // ===============================
+        // CARREGAR TUDO
+        // ===============================
+
+        function carregarTudo() {
+
+            btnAtualizar.disabled = true;
+
+            if (!listaAgendamentos.hasChildNodes()) {
+                mostrarAviso("Carregando agendamentos...", false);
+            }
+
+            return Promise.all([carregarResumo(), buscarAgendamentos()])
+                .then(function(resultados) {
+
+                    desenharLista(resultados[1]);
+
+                    const agora = new Date();
+
+                    atualizadoEm.textContent =
+                        "Atualizado às " +
+                        String(agora.getHours()).padStart(2, "0") + ":" +
+                        String(agora.getMinutes()).padStart(2, "0");
+
+                })
+                .catch(function(erro) {
+
+                    console.error(erro);
+
+                    // Sessão expirou
+                    if (erro && (erro.code === "PGRST301" || erro.status === 401)) {
+                        mostrarLogin("Sua sessão expirou. Entre novamente.");
+                        return;
+                    }
+
+                    mostrarAviso(
+                        "Não foi possível carregar os agendamentos. " +
+                        "Verifique a conexão e clique em Atualizar.",
+                        true
+                    );
+
+                })
+                .finally(function() {
+
+                    btnAtualizar.disabled = false;
+
+                });
+
+        }
+
+        btnAtualizar.addEventListener("click", carregarTudo);
+
+
+        // ===============================
+        // FILTROS
+        // ===============================
+
+        botoesFiltro.forEach(function(botao) {
+
+            botao.addEventListener("click", function() {
+
+                botoesFiltro.forEach(function(outro) {
+                    outro.classList.remove("ativo");
+                });
+
+                botao.classList.add("ativo");
+                filtroAtual = botao.dataset.filtro;
+
+                listaAgendamentos.innerHTML = "";
+                carregarTudo();
+
+            });
+
+        });
+
+
+        // ===============================
+        // ATUALIZAÇÃO AUTOMÁTICA
+        // ===============================
+        // A cada 1 minuto, com a aba aberta, busca
+        // agendamentos novos sozinho.
+
+        function iniciarAtualizacaoAutomatica() {
+
+            pararAtualizacaoAutomatica();
+
+            atualizacaoAutomatica = setInterval(function() {
+
+                if (!document.hidden) {
+                    carregarTudo();
+                }
+
+            }, 60000);
+
+        }
+
+        function pararAtualizacaoAutomatica() {
+
+            if (atualizacaoAutomatica) {
+                clearInterval(atualizacaoAutomatica);
+                atualizacaoAutomatica = null;
+            }
+
+        }
+
+
+        // ===============================
+        // AO ABRIR A PÁGINA
+        // ===============================
+        // Se a Dra. já entrou antes, a sessão fica salva
+        // no navegador e ela não precisa digitar a senha de novo.
+
+        if (typeof supabaseClient === "undefined") {
+
+            mostrarLogin(
+                "Não foi possível conectar ao servidor. " +
+                "Verifique a internet e recarregue a página."
+            );
+            btnEntrar.disabled = true;
+
+        } else {
+
+            supabaseClient.auth.getSession().then(function(resposta) {
+
+                const sessao = resposta.data && resposta.data.session;
+
+                if (sessao) {
+                    entrarSeForDaEquipe(sessao.user);
+                } else {
+                    mostrarLogin();
+                }
+
+            });
+
+        }
+
+    </script>
+
+    <script src="prontuario.js"></script>
+
+</body>
+
+</html>

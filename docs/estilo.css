@@ -1,0 +1,1606 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================
+   GERAL
+========================= */
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f5f0eb;
+    color: #3f271e;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+header {
+    width: 100%;
+    padding: 25px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: transparent;
+}
+
+.logo {
+    font-size: 22px;
+    color: #3f271e;
+}
+
+.logo span {
+    font-weight: normal;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    color: #3f271e;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #9b705b;
+}
+
+.btn-agendar {
+    padding: 13px 22px;
+    border-radius: 30px;
+    background-color: #5a382b;
+    color: white;
+    font-size: 14px;
+}
+
+.btn-agendar:hover {
+    background-color: #3f271e;
+}
+
+
+/* =========================
+   INÍCIO
+========================= */
+
+.inicio {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: left;
+    padding: 50px 8%;
+    gap: 70px;
+    background-image: url("imagens/dra-gabriela-atendimento.jpeg");
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+}
+
+.imagem-inicio {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+.imagem-inicio img {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top 5%;
+}
+
+.texto-inicio {
+    width: 50%;
+}
+
+.texto-inicio p {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #6d5a51;
+}
+
+.texto-inicio h1 {
+    font-size: 52px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    font-weight: 300;
+    color: #3f271e;
+}
+
+.texto-inicio h1 span {
+    font-weight: bold;
+    color: #5a382b;
+}
+
+.texto-inicio .descricao {
+    max-width: 500px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #6d5a51;
+    margin-bottom: 30px;
+}
+
+.botoes {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-principal {
+    padding: 15px 25px;
+    background-color: #5a382b;
+    color: white;
+    border-radius: 30px;
+    display: inline-block;
+}
+
+.btn-principal:hover {
+    background-color: #3f271e;
+}
+
+.btn-secundario {
+    padding: 15px 25px;
+    color: #5a382b;
+}
+
+
+/* =========================
+   SOBRE
+========================= */
+
+.sobre {
+    background-color: #f5f0eb;
+    color: #3f271e;
+    padding: 80px 8%;
+}
+
+.sobre h2 {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 48px;
+    font-weight: 400;
+    margin-bottom: 60px;
+}
+
+.conteudo-sobre {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+
+/* =========================
+   ESTRUTURA DO SITE
+========================= */
+
+.estrutura-site {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.conteudo-site {
+    min-width: 0;
+}
+
+
+/* =========================
+   PERFIL DA DRA.
+========================= */
+
+.perfil-sobre {
+    text-align: center;
+    position: sticky;
+    top: 100px;
+    margin-top: 40px;
+}
+
+.perfil-sobre img {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 20%;
+    margin-bottom: 20px;
+}
+
+.perfil-sobre h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.perfil-sobre p {
+    color: #6d5a51;
+    margin-bottom: 12px;
+}
+
+.perfil-sobre .btn-principal {
+    display: inline-block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.contato {
+    display: block;
+    color: #5a382b;
+}
+
+
+/* =========================
+   CARDS DA SEÇÃO SOBRE
+========================= */
+
+.card-sobre,
+.card-especialidades,
+.card-formacao,
+.card-cro,
+.card-redes {
+    background-color: #ffffff;
+    padding: 35px;
+    border-radius: 4px;
+}
+
+.card-sobre h3,
+.card-especialidades h3,
+.card-formacao h3,
+.card-cro h3,
+.card-redes h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #5a382b;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   SOBRE MEU TRABALHO
+========================= */
+
+.card-sobre p {
+    color: #6d5a51;
+    font-size: 14px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+
+/* =========================
+   COLUNA DIREITA
+========================= */
+
+.coluna-direita {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+
+/* =========================
+   ESPECIALIDADES
+========================= */
+
+.card-especialidades ul {
+    list-style: none;
+}
+
+.card-especialidades li {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5ddd7;
+    color: #6d5a51;
+}
+
+.card-especialidades li::before {
+    content: "✔️";
+    margin-right: 10px;
+    color: #9b705b;
+}
+
+
+/* =========================
+   FORMAÇÃO
+========================= */
+
+.card-formacao p {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    color: #6d5a51;
+    margin-bottom: 12px;
+}
+
+
+/* =========================
+   NÚMERO DE REGISTRO
+========================= */
+
+.card-cro p {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #5a382b;
+}
+
+
+/* =========================
+   REDES SOCIAIS
+========================= */
+
+.card-redes {
+    margin-top: 0;
+}
+
+.card-redes a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5ddd7;
+    color: #6d5a51;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+}
+
+.card-redes a:last-child {
+    border-bottom: none;
+}
+
+.card-redes a i {
+    width: 20px;
+    margin-right: 10px;
+    color: #9b705b;
+}
+
+
+/* =========================
+   SEÇÕES
+========================= */
+
+#servicos,
+#agendamento,
+#pacientes,
+#contato {
+    padding: 80px 8%;
+    min-height: 400px;
+}
+
+#servicos h2,
+#agendamento h2,
+#pacientes h2,
+#contato h2 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   SERVIÇOS
+========================= */
+
+.subtitulo-servicos {
+    text-align: center;
+    color: #6d5a51;
+    font-size: 17px;
+    margin-bottom: 40px;
+}
+
+.lista-servicos {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card-servico {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.card-servico:hover {
+    transform: translateY(-5px);
+}
+
+.card-servico h3 {
+    color: #5a382b;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.card-servico p {
+    color: #6d5a51;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.btn-saiba-mais {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #5a382b;
+    background-color: transparent;
+    border: 1px solid #9b705b;
+    padding: 9px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-saiba-mais:hover {
+    background-color: #f5f0eb;
+    border-color: #5a382b;
+}
+
+.detalhes-servico {
+    display: none;
+}
+
+.detalhes-servico.mostrar {
+    display: block;
+}
+
+
+/* =========================
+   DTM
+========================= */
+
+.sigla-dtm {
+    position: relative;
+    cursor: help;
+}
+
+.tooltip-dtm {
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    transform: translateX(-50%);
+    background-color: #5a382b;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: normal;
+    white-space: nowrap;
+    z-index: 10;
+}
+
+.sigla-dtm:hover .tooltip-dtm {
+    display: block;
+}
+
+
+/* =========================
+   AGENDAMENTO
+========================= */
+
+.subtitulo-agendamento {
+    text-align: center;
+    color: #6d5a51;
+    font-size: 17px;
+    margin-bottom: 40px;
+}
+
+
+/* =========================
+   CALENDÁRIO
+========================= */
+
+.calendario-agendamento {
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(63, 39, 30, 0.08);
+}
+
+.calendario-conteudo {
+    width: 100%;
+}
+
+
+/* =========================
+   SETAS
+========================= */
+
+.seta-calendario {
+    position: absolute;
+    top: 0;
+    width: 48px;
+    height: 70px;
+    border: none;
+    background-color: #5a382b;
+    color: #ffffff;
+    font-size: 15px;
+    cursor: pointer;
+    z-index: 5;
+    transition: 0.3s;
+}
+
+.seta-calendario:hover {
+    background-color: #3f271e;
+}
+
+.seta-calendario:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.seta-anterior {
+    left: 0;
+    border-radius: 8px 0 0 0;
+}
+
+.seta-proxima {
+    right: 0;
+    border-radius: 0 8px 0 0;
+}
+
+
+/* =========================
+   CABEÇALHO DO CALENDÁRIO
+========================= */
+
+.cabecalho-calendario {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #5a382b;
+    color: #ffffff;
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
+.cabecalho-calendario div {
+    padding: 16px 8px;
+    text-align: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.cabecalho-calendario div:last-child {
+    border-right: none;
+}
+
+.cabecalho-calendario strong {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.cabecalho-calendario span {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+
+/* =========================
+   DIAS
+========================= */
+
+.dias-calendario {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0,1fr));
+    align-items: start;
+    min-height: auto;
+    padding-left: 48px;
+    padding-right: 48px;
+}
+
+.dia {
+    padding: 20px 8px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border-right: 1px solid #e5ddd7;
+    min-width: 0;
+}
+
+.dia:last-child {
+    border-right: none;
+}
+
+
+/* =========================
+   HORÁRIOS
+========================= */
+
+.dia button {
+    min-width: 68px;
+    padding: 7px 9px;
+    border: 1px solid #d8c8bd;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #5a382b;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dia button:hover {
+    background-color: #f5f0eb;
+    border-color: #9b705b;
+}
+
+.dia button.horario-selecionado {
+    background-color: #5a382b;
+    color: #ffffff;
+    border-color: #5a382b;
+}
+
+
+/* =========================
+   HORÁRIOS EXTRAS
+========================= */
+
+.horarios-extras {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+
+/* =========================
+   SEM HORÁRIOS
+========================= */
+
+.sem-horario {
+    margin-top: 35px;
+    color: #aaa09a;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+}
+
+
+/* =========================
+   BOTÃO VER MAIS
+========================= */
+
+.btn-ver-mais {
+    display: block;
+    margin: 8px auto 20px;
+    padding: 9px 20px;
+    border: 1px solid #9b705b;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #5a382b;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-ver-mais:hover {
+    background-color: #f5f0eb;
+    border-color: #5a382b;
+}
+
+.btn-ver-mais i {
+    margin-right: 7px;
+}
+
+
+/* =========================
+   FORMULÁRIO DE AGENDAMENTO
+========================= */
+
+.formulario-agendamento {
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 5px 20px rgba(63, 39, 30, 0.08);
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 8px;
+    color: #5a382b;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd2ca;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    background-color: #ffffff;
+}
+
+.campo input:focus,
+.campo select:focus {
+    outline: none;
+    border-color: #9b705b;
+}
+
+.formulario-agendamento .btn-principal {
+    border: 1px solid #5a382b;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 5px;
+    padding: 10px 18px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.formulario-agendamento .btn-principal:hover {
+    background-color: #3f271e;
+    border-color: #3f271e;
+}
+
+
+/* =========================
+   MENSAGEM DE AGENDAMENTO
+========================= */
+
+.mensagem-agendamento {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f5f0eb;
+    border: 1px solid #d8c8bd;
+    border-radius: 8px;
+    color: #5a382b;
+    line-height: 1.6;
+}
+
+.mensagem-agendamento h3 {
+    margin-bottom: 10px;
+    color: #5a382b;
+}
+
+.mensagem-agendamento p {
+    margin-top: 5px;
+}
+
+
+/* =========================
+   ÁREA DO PACIENTE
+========================= */
+
+.subtitulo-pacientes {
+    text-align: center;
+    color: #6d5a51;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+.area-paciente {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.card-paciente {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 4px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.card-paciente:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(63, 39, 30, 0.08);
+}
+
+.card-paciente h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #5a382b;
+    margin-bottom: 15px;
+}
+
+.card-paciente p {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6d5a51;
+    margin-bottom: 18px;
+}
+
+.card-paciente button {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #5a382b;
+    background-color: transparent;
+    border: 1px solid #9b705b;
+    padding: 9px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card-paciente button:hover {
+    background-color: #f5f0eb;
+    border-color: #5a382b;
+}
+
+.info-paciente {
+    display: none;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f5f0eb;
+    border-radius: 6px;
+    color: #6d5a51;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.info-paciente.mostrar {
+    display: block;
+}
+
+
+/* =========================
+   CONTATO
+========================= */
+
+.subtitulo-contato {
+    text-align: center;
+    color: #6d5a51;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    margin-bottom: 40px;
+}
+
+.contato-conteudo {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card-contato {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 4px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card-contato:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(63, 39, 30, 0.08);
+}
+
+.card-contato h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #5a382b;
+    margin-bottom: 15px;
+}
+
+.card-contato p {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #6d5a51;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 900px) {
+
+    header {
+        padding: 20px 5%;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .inicio {
+        padding: 50px 5%;
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .imagem-inicio {
+        width: 100%;
+    }
+
+    .imagem-inicio img {
+        width: 300px;
+        height: 300px;
+    }
+
+    .texto-inicio {
+        width: 100%;
+    }
+
+    .texto-inicio h1 {
+        font-size: 42px;
+    }
+
+    .texto-inicio .descricao {
+        margin: 0 auto 30px;
+    }
+
+    .botoes {
+        justify-content: center;
+    }
+
+    .conteudo-sobre {
+        grid-template-columns: 1fr;
+    }
+
+    .estrutura-site {
+        grid-template-columns: 1fr;
+    }
+
+    .perfil-sobre {
+        position: static;
+        margin-top: 0;
+    }
+
+    .sobre h2 {
+        font-size: 38px;
+    }
+
+    .lista-servicos {
+        grid-template-columns: 1fr;
+    }
+
+    .card-servico {
+        text-align: center;
+    }
+
+    /* Calendário */
+
+    .calendario-agendamento {
+        overflow-x: auto;
+    }
+
+    .cabecalho-calendario,
+    .dias-calendario {
+        min-width: 900px;
+    }
+
+    /* Área do paciente */
+
+    .area-paciente {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contato */
+
+    .contato-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    /* Formulário */
+
+    .formulario-agendamento {
+        padding: 25px;
+    }
+
+}
+
+/* =========================
+   RODAPÉ
+========================= */
+
+.rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    padding: 28px 7%;
+    border-top: 1px solid #e5ddd7;
+    font-size: 13px;
+    color: #6d5a51;
+}
+
+.link-area-clinica {
+    color: #6d5a51;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.link-area-clinica:hover {
+    color: #3f271e;
+}
+
+
+/* =========================
+   ÁREA DO PACIENTE — ACESSO
+========================= */
+
+[hidden] {
+    display: none !important;
+}
+
+.acesso-paciente {
+    max-width: 1000px;
+    margin: 0 auto 25px;
+    scroll-margin-top: 30px;
+}
+
+.form-acesso-paciente {
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 25px;
+    text-align: left;
+    font-family: 'Lato', sans-serif;
+}
+
+.acesso-texto h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #5a382b;
+    margin-bottom: 6px;
+}
+
+.acesso-texto p {
+    font-size: 14px;
+    color: #6d5a51;
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.acesso-campos {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr auto;
+    gap: 14px;
+    align-items: end;
+}
+
+.campo-acesso {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+    color: #5a382b;
+    min-width: 0;
+}
+
+.campo-acesso input {
+    height: 44px;
+    padding: 0 16px;
+    border: 1px solid #d8d2cd;
+    border-radius: 22px;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    color: #3f271e;
+    background-color: #ffffff;
+    outline: none;
+    transition: 0.2s;
+}
+
+#codigo-acesso {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#codigo-acesso::placeholder {
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+.campo-acesso input:focus {
+    border-color: #168b82;
+    box-shadow: 0 0 0 3px #dff3ed;
+}
+
+.btn-acesso {
+    height: 44px;
+    padding: 0 30px;
+    border: none;
+    border-radius: 22px;
+    background-color: #168b82;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-acesso:hover:not(:disabled) {
+    background-color: #11756e;
+}
+
+.btn-acesso:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.acesso-campos-2 {
+    grid-template-columns: 1fr auto;
+}
+
+.info-acesso {
+    font-size: 13px;
+    color: #0d6b64;
+    margin-top: 12px;
+    line-height: 1.5;
+}
+
+.info-acesso:empty {
+    display: none;
+}
+
+.acoes-acesso {
+    font-size: 13px;
+    color: #9b8a80;
+    margin-top: 10px;
+}
+
+.link-acesso {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    color: #11756e;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    cursor: pointer;
+}
+
+.link-acesso:disabled {
+    color: #9b8a80;
+    text-decoration: none;
+    cursor: default;
+}
+
+.escolher-paciente {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #6d5a51;
+    text-align: left;
+}
+
+.opcao-paciente {
+    padding: 7px 16px;
+    border: 1px solid #d8d2cd;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #5a382b;
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.opcao-paciente:hover {
+    border-color: #9b705b;
+}
+
+.opcao-paciente.ativa {
+    background-color: #5a382b;
+    border-color: #5a382b;
+    color: #ffffff;
+}
+
+.dica-acesso {
+    font-size: 13px;
+    color: #5a382b;
+    background-color: #f5f0eb;
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-top: 14px;
+    line-height: 1.5;
+}
+
+.botoes-logado {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.form-alterar-senha {
+    margin-top: 12px;
+}
+
+.acesso-campos-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.botoes-alterar {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+.erro-acesso {
+    font-size: 13px;
+    color: #b03a2e;
+    margin-top: 12px;
+}
+
+.erro-acesso:empty {
+    display: none;
+}
+
+.ajuda-acesso {
+    font-size: 13px;
+    color: #6d5a51;
+    margin-top: 14px;
+}
+
+.ajuda-acesso a {
+    color: #11756e;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.paciente-logado {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    border-left: 4px solid #168b82;
+    border-radius: 4px;
+    padding: 16px 25px;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    color: #5a382b;
+    text-align: left;
+}
+
+.btn-logado {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    color: #5a382b;
+    background-color: transparent;
+    border: 1px solid #9b705b;
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-logado:hover {
+    background-color: #f5f0eb;
+}
+
+
+/* =========================
+   ÁREA DO PACIENTE — CONTEÚDO
+========================= */
+
+.info-paciente .texto-area-paciente {
+    margin: 0;
+    font-size: 14px;
+    color: #6d5a51;
+}
+
+.link-area-paciente {
+    color: #11756e;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.titulo-area-pac {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #9b705b;
+    margin: 4px 0 8px;
+}
+
+.titulo-area-pac:not(:first-child) {
+    margin-top: 18px;
+}
+
+.item-pac {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 12px 14px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    color: #3f271e;
+}
+
+.item-pac strong {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.item-pac-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.item-pac-detalhe {
+    font-size: 13px;
+    color: #6d5a51;
+}
+
+.item-pac-proximo {
+    font-size: 13px;
+    color: #11756e;
+}
+
+.selo-pac {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.selo-pac-pendente   { background-color: #fdf0d9; color: #8a5a00; }
+.selo-pac-confirmado { background-color: #dff3ed; color: #0d6b64; }
+.selo-pac-realizado  { background-color: #e4eefb; color: #24518a; }
+.selo-pac-andamento  { background-color: #ede4f6; color: #5e3a85; }
+.selo-pac-cancelado  { background-color: #efe9e5; color: #6d5a51; }
+
+.card-paciente .btn-pac-cancelar {
+    align-self: flex-start;
+    margin-top: 6px;
+    padding: 6px 14px;
+    font-size: 13px;
+    color: #b03a2e;
+    border-color: #ecc9c4;
+    background-color: #ffffff;
+}
+
+.card-paciente .btn-pac-cancelar:hover {
+    background-color: #fbefed;
+    border-color: #b03a2e;
+}
+
+.aviso-cancelamento {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 12px 14px;
+    margin-bottom: 12px;
+    background-color: #dff3ed;
+    border-radius: 6px;
+}
+
+.aviso-cancelamento p {
+    margin: 0;
+    color: #0d6b64;
+    font-size: 14px;
+}
+
+.link-whatsapp-pac {
+    padding: 6px 14px;
+    border-radius: 16px;
+    background-color: #168b82;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Prontuário: dentes */
+
+.item-dente-pac {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.item-dente-pac > div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.simbolo-dente-pac {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 32px;
+    border-radius: 8px 8px 11px 11px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.sit-carie             { background-color: #c0392b; }
+.sit-restaurado        { background-color: #2f6fb5; }
+.sit-canal             { background-color: #7b4fa3; }
+.sit-coroa             { background-color: #c98a12; }
+.sit-implante          { background-color: #168b82; }
+.sit-extracao_indicada { background-color: #e07a1f; }
+.sit-fratura           { background-color: #6b3e26; }
+.sit-ausente           { background-color: #efe9e5; color: #8a7b72; border: 2px dashed #b9aca4; }
+
+/* Plano: progresso */
+
+.progresso-pac {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: #5a382b;
+}
+
+.barra-pac {
+    height: 8px;
+    border-radius: 4px;
+    background-color: #e5ddd7;
+    overflow: hidden;
+}
+
+.barra-pac-preenchida {
+    height: 100%;
+    background-color: #168b82;
+    border-radius: 4px;
+}
+
+/* Orçamentos */
+
+.tabela-orcamento {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 6px;
+    overflow: hidden;
+    font-size: 14px;
+    color: #3f271e;
+}
+
+.tabela-orcamento th {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #9b705b;
+    padding: 10px 14px;
+    border-bottom: 1px solid #e5ddd7;
+}
+
+.tabela-orcamento td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #f1ebe6;
+}
+
+.tabela-orcamento .coluna-valor {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.marca-concluido {
+    font-size: 12px;
+    color: #0d6b64;
+}
+
+.totais-orcamento {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.linha-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #5a382b;
+}
+
+.linha-total.total-destaque {
+    font-size: 16px;
+    color: #3f271e;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #e5ddd7;
+}
+
+.nota-orcamento {
+    font-size: 12px !important;
+    color: #9b8a80 !important;
+    margin: 12px 0 0 !important;
+}
+
+@media (max-width: 760px) {
+
+    .acesso-campos {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-acesso {
+        width: 100%;
+    }
+
+    .paciente-logado {
+        padding: 14px 18px;
+    }
+}

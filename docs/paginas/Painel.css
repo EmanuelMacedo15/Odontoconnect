@@ -1,0 +1,1511 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+/* ===============================
+   PAINEL DA CLÍNICA
+   =============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f5f0eb;
+    color: #3f271e;
+    min-height: 100vh;
+}
+
+button,
+input,
+select {
+    font-family: 'Lato', sans-serif;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+
+/* ===============================
+   CABEÇALHO
+   =============================== */
+
+.cabecalho-painel {
+    width: 100%;
+    min-height: 70px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 4%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5ddd7;
+}
+
+.voltar-site {
+    justify-self: start;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid #e5ddd7;
+    border-radius: 30px;
+    color: #5a382b;
+    background-color: #ffffff;
+    font-size: 13px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.voltar-site:hover {
+    background-color: #f5f0eb;
+}
+
+.logo-odonto-connect {
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #5a382b;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.logo-odonto-connect img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.usuario-logado {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: #6d5a51;
+    min-width: 0;
+}
+
+.usuario-logado span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* ===============================
+   BOTÕES
+   =============================== */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 18px;
+    border-radius: 25px;
+    border: 1px solid transparent;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.2s;
+    white-space: nowrap;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.btn-principal {
+    background-color: #168b82;
+    color: #ffffff;
+}
+
+.btn-principal:hover:not(:disabled) {
+    background-color: #11756e;
+}
+
+.btn-secundario {
+    background-color: #ffffff;
+    color: #5a382b;
+    border-color: #e5ddd7;
+}
+
+.btn-secundario:hover:not(:disabled) {
+    background-color: #f5f0eb;
+}
+
+.btn-perigo {
+    background-color: #ffffff;
+    color: #b03a2e;
+    border-color: #ecc9c4;
+}
+
+.btn-perigo:hover:not(:disabled) {
+    background-color: #fbefed;
+}
+
+
+/* ===============================
+   LOGIN
+   =============================== */
+
+.area-login {
+    display: flex;
+    justify-content: center;
+    padding: 70px 20px;
+}
+
+.card-login {
+    width: 100%;
+    max-width: 400px;
+    background-color: #ffffff;
+    border: 1px solid #e5ddd7;
+    border-radius: 18px;
+    padding: 40px 36px;
+    box-shadow: 0 10px 30px rgba(63, 39, 30, 0.06);
+}
+
+.card-login h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.card-login > p {
+    font-size: 14px;
+    color: #6d5a51;
+    line-height: 1.5;
+    margin-bottom: 28px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.campo label {
+    font-size: 14px;
+    color: #3f271e;
+}
+
+.campo input {
+    height: 46px;
+    padding: 0 18px;
+    border: 1px solid #d8d2cd;
+    border-radius: 25px;
+    font-size: 15px;
+    color: #3f271e;
+    background-color: #ffffff;
+    outline: none;
+    transition: 0.2s;
+}
+
+.campo input:focus {
+    border-color: #168b82;
+    box-shadow: 0 0 0 3px #dff3ed;
+}
+
+.card-login .btn-principal {
+    width: 100%;
+    height: 48px;
+    font-size: 15px;
+    margin-top: 6px;
+}
+
+.mensagem-erro {
+    font-size: 13px;
+    color: #b03a2e;
+    line-height: 1.4;
+    margin-top: 14px;
+    min-height: 18px;
+}
+
+
+/* ===============================
+   PAINEL
+   =============================== */
+
+.area-painel {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+}
+
+.topo-painel {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.topo-painel h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.topo-painel p {
+    font-size: 14px;
+    color: #6d5a51;
+    margin-top: 6px;
+}
+
+
+/* RESUMO */
+
+.resumo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.resumo-item {
+    background-color: #ffffff;
+    border: 1px solid #e5ddd7;
+    border-radius: 16px;
+    padding: 20px 22px;
+}
+
+.resumo-item strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 1;
+    color: #3f271e;
+}
+
+.resumo-item span {
+    display: block;
+    font-size: 14px;
+    color: #6d5a51;
+    margin-top: 8px;
+}
+
+.resumo-item.destaque {
+    background-color: #168b82;
+    border-color: #168b82;
+}
+
+.resumo-item.destaque strong,
+.resumo-item.destaque span {
+    color: #ffffff;
+}
+
+
+/* FILTROS */
+
+.filtros {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.filtro {
+    padding: 8px 18px;
+    border-radius: 25px;
+    border: 1px solid #e5ddd7;
+    background-color: #ffffff;
+    color: #5a382b;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filtro:hover {
+    background-color: #f5f0eb;
+}
+
+.filtro.ativo {
+    background-color: #5a382b;
+    border-color: #5a382b;
+    color: #ffffff;
+}
+
+
+/* LISTA */
+
+.grupo-dia {
+    margin-bottom: 28px;
+}
+
+.grupo-dia h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #5a382b;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e5ddd7;
+}
+
+.agendamento {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 20px;
+    align-items: start;
+    background-color: #ffffff;
+    border: 1px solid #e5ddd7;
+    border-radius: 16px;
+    padding: 20px 22px;
+    margin-bottom: 12px;
+}
+
+.agendamento.cancelado {
+    opacity: 0.65;
+}
+
+.agendamento-hora {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: #3f271e;
+    line-height: 1.1;
+}
+
+.agendamento-info {
+    min-width: 0;
+}
+
+.agendamento-nome {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 18px;
+    font-weight: 700;
+    color: #3f271e;
+    margin-bottom: 4px;
+}
+
+.agendamento-tipo {
+    font-size: 14px;
+    color: #6d5a51;
+    margin-bottom: 12px;
+}
+
+.agendamento-detalhes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 22px;
+    font-size: 14px;
+    color: #5a382b;
+}
+
+.agendamento-detalhes a {
+    color: #11756e;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    overflow-wrap: anywhere;
+}
+
+.agendamento-obs {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background-color: #f5f0eb;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #5a382b;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.agendamento-acoes {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: stretch;
+}
+
+
+/* SELO DE STATUS */
+
+.selo {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.selo-pendente {
+    background-color: #fdf0d9;
+    color: #8a5a00;
+}
+
+.selo-confirmado {
+    background-color: #dff3ed;
+    color: #0d6b64;
+}
+
+.selo-cancelado {
+    background-color: #efe9e5;
+    color: #6d5a51;
+}
+
+
+/* ESTADOS */
+
+.aviso-lista {
+    background-color: #ffffff;
+    border: 1px dashed #d8d2cd;
+    border-radius: 16px;
+    padding: 40px 20px;
+    text-align: center;
+    color: #6d5a51;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.aviso-lista.erro {
+    border-style: solid;
+    border-color: #ecc9c4;
+    color: #b03a2e;
+}
+
+.atualizado-em {
+    font-size: 12px;
+    color: #9b8a80;
+    margin-top: 8px;
+    text-align: right;
+}
+
+
+/* ===============================
+   CELULAR
+   =============================== */
+
+@media (max-width: 760px) {
+
+    .cabecalho-painel {
+        grid-template-columns: auto 1fr;
+        padding: 12px 16px;
+    }
+
+    .logo-odonto-connect {
+        justify-self: end;
+        font-size: 17px;
+    }
+
+    .logo-odonto-connect img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .usuario-logado {
+        grid-column: 1 / -1;
+        justify-self: stretch;
+        justify-content: space-between;
+    }
+
+    .area-painel {
+        padding: 28px 16px 60px;
+    }
+
+    .topo-painel h1 {
+        font-size: 28px;
+    }
+
+    .resumo {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .resumo-item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+    }
+
+    .resumo-item strong {
+        font-size: 28px;
+    }
+
+    .resumo-item span {
+        margin-top: 0;
+    }
+
+    .agendamento {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 18px;
+    }
+
+    .agendamento-acoes {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .agendamento-acoes .btn {
+        flex: 1;
+    }
+
+    .card-login {
+        padding: 32px 22px;
+    }
+}
+
+
+/* ===============================
+   NOME DO PACIENTE (CLICÁVEL)
+   =============================== */
+
+.link-paciente {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-color: #d8d2cd;
+    text-underline-offset: 4px;
+    transition: 0.2s;
+}
+
+.link-paciente:hover {
+    color: #11756e;
+    text-decoration-color: #11756e;
+}
+
+
+/* ===============================
+   JANELA DO HISTÓRICO
+   =============================== */
+
+.modal-historico {
+    width: min(720px, calc(100% - 32px));
+    max-height: calc(100vh - 64px);
+    margin: auto;
+    padding: 32px;
+    border: none;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #3f271e;
+    box-shadow: 0 20px 60px rgba(63, 39, 30, 0.25);
+    overflow-y: auto;
+}
+
+.modal-historico::backdrop {
+    background-color: rgba(40, 25, 18, 0.45);
+}
+
+.historico-topo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5ddd7;
+    margin-bottom: 20px;
+}
+
+.historico-identificacao {
+    min-width: 0;
+}
+
+.historico-rotulo {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #168b82;
+    margin-bottom: 6px;
+}
+
+.historico-topo h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    overflow-wrap: anywhere;
+}
+
+.btn-fechar-historico {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #e5ddd7;
+    background-color: #ffffff;
+    color: #5a382b;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-fechar-historico:hover {
+    background-color: #f5f0eb;
+}
+
+
+/* RESUMO DO PACIENTE */
+
+.historico-resumo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.historico-resumo-item {
+    background-color: #f5f0eb;
+    border-radius: 12px;
+    padding: 14px 16px;
+}
+
+.historico-resumo-item strong {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.historico-resumo-item span {
+    display: block;
+    font-size: 13px;
+    color: #6d5a51;
+    margin-top: 4px;
+}
+
+.historico-subtitulo {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #5a382b;
+    margin-bottom: 10px;
+}
+
+
+/* LISTA DE CONSULTAS */
+
+.historico-item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid #efe9e5;
+}
+
+.historico-item:first-of-type {
+    border-top: none;
+}
+
+.historico-item.atual {
+    background-color: #f2faf8;
+    border-radius: 12px;
+    padding: 14px 14px;
+    margin: 0 -14px;
+    border-top-color: transparent;
+}
+
+.historico-item.atual + .historico-item {
+    border-top-color: transparent;
+}
+
+.historico-quando strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.historico-quando span {
+    display: block;
+    font-size: 14px;
+    color: #6d5a51;
+    margin-top: 2px;
+}
+
+.historico-tipo {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.historico-marcador {
+    font-size: 12px;
+    color: #11756e;
+    font-weight: 700;
+}
+
+.historico-outro-nome {
+    font-size: 13px;
+    color: #9b705b;
+    margin-top: 6px;
+}
+
+.historico-obs {
+    margin-top: 8px;
+    padding: 8px 12px;
+    background-color: #f5f0eb;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #5a382b;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.selo-realizado {
+    background-color: #e4eefb;
+    color: #24518a;
+}
+
+@media (max-width: 760px) {
+
+    .modal-historico {
+        padding: 22px 18px;
+        max-height: calc(100vh - 32px);
+    }
+
+    .historico-topo h2 {
+        font-size: 23px;
+    }
+
+    .historico-resumo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .historico-item {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+}
+
+
+/* ===============================
+   PRONTUÁRIO
+   =============================== */
+
+.modal-prontuario {
+    width: min(980px, calc(100% - 32px));
+}
+
+.abas-prontuario {
+    display: flex;
+    gap: 4px;
+    border-bottom: 1px solid #e5ddd7;
+    margin: -4px 0 22px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.aba-prontuario {
+    flex-shrink: 0;
+    padding: 10px 16px;
+    border: none;
+    border-bottom: 3px solid transparent;
+    background: none;
+    color: #6d5a51;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.aba-prontuario:hover {
+    color: #3f271e;
+}
+
+.aba-prontuario.ativa {
+    color: #11756e;
+    border-bottom-color: #168b82;
+    font-weight: 700;
+}
+
+.prontuario-conteudo {
+    min-height: 240px;
+}
+
+.dica-prontuario {
+    font-size: 14px;
+    color: #6d5a51;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.btn-pequeno {
+    padding: 6px 14px;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.btn-icone {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px solid #ecc9c4;
+    background-color: #ffffff;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-icone:hover {
+    background-color: #fbefed;
+}
+
+
+/* FORMULÁRIOS DO PRONTUÁRIO */
+
+.form-prontuario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+    padding: 18px;
+    background-color: #faf7f4;
+    border: 1px solid #e5ddd7;
+    border-radius: 14px;
+}
+
+.campo-prontuario {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #5a382b;
+    min-width: 0;
+}
+
+.campo-prontuario input,
+.campo-prontuario textarea,
+.seletor-status {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #d8d2cd;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #3f271e;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    line-height: 1.4;
+    outline: none;
+    resize: vertical;
+    transition: 0.2s;
+}
+
+.campo-prontuario input:focus,
+.campo-prontuario textarea:focus,
+.seletor-status:focus {
+    border-color: #168b82;
+    box-shadow: 0 0 0 3px #dff3ed;
+}
+
+.botoes-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.form-prontuario .mensagem-erro {
+    margin-top: 0;
+    min-height: 0;
+}
+
+.form-prontuario .mensagem-erro:empty {
+    display: none;
+}
+
+
+/* ANOTAÇÃO DA CONSULTA */
+
+.anotacao-clinica {
+    margin-top: 10px;
+    padding: 12px 14px;
+    border-left: 3px solid #168b82;
+    background-color: #f2faf8;
+    border-radius: 0 10px 10px 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: #3f271e;
+}
+
+.anotacao-clinica p {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.anotacao-clinica p + p {
+    margin-top: 4px;
+}
+
+.anotacao-data {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #6d5a51;
+}
+
+
+/* ODONTOGRAMA */
+
+.odontograma {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 22px 16px;
+    background-color: #faf7f4;
+    border: 1px solid #e5ddd7;
+    border-radius: 16px;
+    overflow-x: auto;
+}
+
+.arcada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.arcada-titulo {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #9b705b;
+}
+
+.arcada-quadrantes {
+    display: flex;
+    gap: 14px;
+}
+
+.quadrante {
+    display: flex;
+    gap: 5px;
+}
+
+.quadrante + .quadrante {
+    padding-left: 14px;
+    border-left: 2px dashed #d8d2cd;
+}
+
+.dente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 2px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    background: none;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.dente:hover {
+    background-color: #ffffff;
+}
+
+.dente.selecionado {
+    border-color: #168b82;
+    background-color: #ffffff;
+}
+
+.dente-coroa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 44px;
+    border-radius: 12px 12px 16px 16px;
+    border: 2px solid #d8d2cd;
+    background-color: #ffffff;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.dente-numero {
+    font-size: 12px;
+    font-weight: 700;
+    color: #6d5a51;
+}
+
+/* Cores das situações (também têm símbolo, para não
+   depender só da cor) */
+
+.situacao-carie             { background-color: #c0392b !important; border-color: #c0392b !important; color: #ffffff !important; }
+.situacao-restaurado        { background-color: #2f6fb5 !important; border-color: #2f6fb5 !important; color: #ffffff !important; }
+.situacao-canal             { background-color: #7b4fa3 !important; border-color: #7b4fa3 !important; color: #ffffff !important; }
+.situacao-coroa             { background-color: #c98a12 !important; border-color: #c98a12 !important; color: #ffffff !important; }
+.situacao-implante          { background-color: #168b82 !important; border-color: #168b82 !important; color: #ffffff !important; }
+.situacao-extracao_indicada { background-color: #e07a1f !important; border-color: #e07a1f !important; color: #ffffff !important; }
+.situacao-fratura           { background-color: #6b3e26 !important; border-color: #6b3e26 !important; color: #ffffff !important; }
+.situacao-ausente           { background-color: #efe9e5 !important; border-color: #b9aca4 !important; color: #8a7b72 !important; border-style: dashed !important; }
+.situacao-saudavel          { background-color: #ffffff !important; border-color: #d8d2cd !important; }
+
+/* No dente, a cor vai só na coroa */
+.dente[class*="situacao-"] {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+.dente.selecionado[class*="situacao-"] {
+    border-color: #168b82 !important;
+    background-color: #ffffff !important;
+}
+
+.dente.situacao-carie .dente-coroa             { background-color: #c0392b; border-color: #c0392b; }
+.dente.situacao-restaurado .dente-coroa        { background-color: #2f6fb5; border-color: #2f6fb5; }
+.dente.situacao-canal .dente-coroa             { background-color: #7b4fa3; border-color: #7b4fa3; }
+.dente.situacao-coroa .dente-coroa             { background-color: #c98a12; border-color: #c98a12; }
+.dente.situacao-implante .dente-coroa          { background-color: #168b82; border-color: #168b82; }
+.dente.situacao-extracao_indicada .dente-coroa { background-color: #e07a1f; border-color: #e07a1f; }
+.dente.situacao-fratura .dente-coroa           { background-color: #6b3e26; border-color: #6b3e26; }
+.dente.situacao-ausente .dente-coroa           { background-color: #efe9e5; border: 2px dashed #b9aca4; color: #8a7b72; }
+
+.legenda-odontograma {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    margin: 14px 0 6px;
+    font-size: 13px;
+    color: #5a382b;
+}
+
+.legenda-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legenda-cor {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 6px;
+    border: 2px solid #d8d2cd;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.editor-dente-topo {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.editor-dente-topo strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+}
+
+.editor-dente-topo span {
+    font-size: 14px;
+    color: #6d5a51;
+}
+
+.opcoes-situacao {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.opcao-situacao {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 12px;
+    border: 1px solid #d8d2cd;
+    border-radius: 20px;
+    background-color: #ffffff;
+    color: #3f271e;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.15s;
+}
+
+.opcao-situacao:hover {
+    border-color: #9b705b;
+}
+
+.opcao-situacao.ativa {
+    border-color: #168b82;
+    background-color: #dff3ed;
+    font-weight: 700;
+}
+
+.registros-dentes {
+    margin-top: 22px;
+}
+
+.registro-dente {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px 12px;
+    border: none;
+    border-top: 1px solid #efe9e5;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    font-family: 'Lato', sans-serif;
+    color: #3f271e;
+}
+
+.registro-dente:hover {
+    background-color: #faf7f4;
+}
+
+.registro-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 14px;
+    min-width: 0;
+}
+
+.registro-texto span {
+    font-size: 13px;
+    color: #6d5a51;
+    overflow-wrap: anywhere;
+}
+
+
+/* PLANO DE TRATAMENTO */
+
+.resumo-plano .historico-resumo-item strong {
+    font-size: 20px;
+}
+
+.lista-plano {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-plano {
+    display: grid;
+    grid-template-columns: 1fr auto 170px auto;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 0;
+    border-top: 1px solid #efe9e5;
+}
+
+.item-plano:first-child {
+    border-top: none;
+}
+
+.item-plano-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.item-plano-info strong {
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.item-plano-info span {
+    font-size: 13px;
+    color: #6d5a51;
+    overflow-wrap: anywhere;
+}
+
+.item-plano-valor {
+    font-weight: 700;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.item-plano.concluido .item-plano-info strong {
+    color: #11756e;
+}
+
+.item-plano.cancelado .item-plano-info strong,
+.item-plano.cancelado .item-plano-valor {
+    text-decoration: line-through;
+    color: #9b8a80;
+}
+
+.seletor-status {
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.form-plano {
+    margin-top: 20px;
+}
+
+.form-plano .historico-subtitulo {
+    margin-bottom: 0;
+}
+
+.form-plano-linha {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 12px;
+}
+
+
+/* ARQUIVOS */
+
+.seletor-arquivos {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.area-soltar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 22px;
+    border: 2px dashed #b9aca4;
+    border-radius: 12px;
+    background-color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.area-soltar:hover,
+.seletor-arquivos:focus + .area-soltar {
+    border-color: #168b82;
+    background-color: #f2faf8;
+}
+
+.area-soltar strong {
+    font-size: 15px;
+    color: #11756e;
+}
+
+.area-soltar span {
+    font-size: 13px;
+    color: #6d5a51;
+}
+
+.arquivos-escolhidos {
+    font-size: 13px;
+    color: #3f271e;
+    overflow-wrap: anywhere;
+}
+
+.arquivos-escolhidos:empty {
+    display: none;
+}
+
+.grade-arquivos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+}
+
+.cartao-arquivo {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e5ddd7;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: #ffffff;
+}
+
+.previa-arquivo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 130px;
+    background-color: #2a1d17;
+}
+
+.previa-arquivo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.icone-arquivo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #f5f0eb;
+    letter-spacing: 1px;
+}
+
+.info-arquivo {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 10px 12px 12px;
+    min-width: 0;
+}
+
+.info-arquivo strong {
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.info-arquivo span {
+    font-size: 12px;
+    color: #6d5a51;
+}
+
+.btn-apagar-arquivo {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 13px;
+    border-color: transparent;
+    background-color: rgba(255, 255, 255, 0.92);
+}
+
+
+/* CELULAR */
+
+@media (max-width: 760px) {
+
+    .aba-prontuario {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    .arcada-quadrantes {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .quadrante + .quadrante {
+        padding-left: 0;
+        border-left: none;
+        padding-top: 6px;
+        border-top: 2px dashed #d8d2cd;
+    }
+
+    .quadrante {
+        gap: 2px;
+    }
+
+    .dente {
+        padding: 3px 1px;
+    }
+
+    .dente-coroa {
+        width: 32px;
+        height: 38px;
+    }
+
+    .item-plano {
+        grid-template-columns: 1fr auto;
+        gap: 8px 12px;
+    }
+
+    .seletor-status {
+        grid-column: 1 / 2;
+    }
+
+    .form-plano-linha {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-plano-linha .campo-largo {
+        grid-column: 1 / -1;
+    }
+
+    .grade-arquivos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* CÓDIGO DE ACESSO DO PACIENTE */
+
+.acesso-prontuario {
+    display: flex;
+    align-items: center;
+    gap: 6px 12px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.acesso-prontuario .btn-pequeno {
+    margin-top: 0;
+}
+
+.situacao-acesso {
+    font-size: 13px;
+    color: #6d5a51;
+}
+
+.caixa-codigo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px 24px;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 14px 18px;
+    background-color: #f2faf8;
+    border: 1px solid #bfe3dc;
+    border-radius: 12px;
+}
+
+.caixa-codigo-texto {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 13px;
+    color: #5a382b;
+}
+
+.codigo-gerado {
+    font-family: 'Courier New', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #0d6b64;
+}
+
+.codigo-aviso {
+    font-size: 12px;
+    color: #8a5a00;
+}
+
+.caixa-codigo .btn-pequeno {
+    margin-top: 0;
+}
